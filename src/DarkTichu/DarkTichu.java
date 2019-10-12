@@ -14,7 +14,7 @@ public class DarkTichu extends Application {
 	DarkTichuController controller;
 // this is a new test for azure
 	
-	
+	int azure = 3;
 	public static void main(String[] args) {
 		launch();
 	}
