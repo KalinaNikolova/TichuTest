@@ -12,7 +12,7 @@ public class DarkTichu extends Application {
 	DarkTichuModel model;
 	DarkTichuView view;
 	DarkTichuController controller;
-
+// this is a new test for azure
 	
 	
 	public static void main(String[] args) {
