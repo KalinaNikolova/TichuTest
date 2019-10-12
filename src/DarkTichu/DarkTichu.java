@@ -15,7 +15,8 @@ public class DarkTichu extends Application {
 // this is a new test for azure yes it is 
 //CAN YOU see this 
 	// and i am putting this line now at 3:47
-	int azure = 9;
+	int azure = 67;
+	// after this 
 	int a=2;
 	int z=0;
 	public static void main(String[] args) {
