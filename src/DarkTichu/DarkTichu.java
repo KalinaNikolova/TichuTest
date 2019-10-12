@@ -17,7 +17,7 @@ public class DarkTichu extends Application {
 	int azure = 3;
 	int a=2;
 	int z=0;
-	//commentsfffwdwd
+	//commentsfffwdwdddcc
 	public static void main(String[] args) {
 		launch();
 	}
