@@ -19,6 +19,11 @@ public class DarkTichu extends Application {
 	int z=0;
 	String willwork= "";
 	//commentsfffwdwdddccfghgh
+	//lets see 
+	//fuck
+	//this
+	//bulshit
+	
 	public static void main(String[] args) {
 		launch();
 	}
