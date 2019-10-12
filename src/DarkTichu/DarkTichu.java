@@ -12,7 +12,8 @@ public class DarkTichu extends Application {
 	DarkTichuModel model;
 	DarkTichuView view;
 	DarkTichuController controller;
-// this is a new test for azure
+	
+// this is a test for the develop branch
 	
 	
 	public static void main(String[] args) {
