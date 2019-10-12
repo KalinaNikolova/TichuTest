@@ -15,6 +15,8 @@ public class DarkTichu extends Application {
 // this is a new test for azure
 	
 	int azure = 3;
+	int a=2;
+	int z=0;
 	public static void main(String[] args) {
 		launch();
 	}
