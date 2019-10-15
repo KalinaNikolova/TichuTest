@@ -27,5 +27,8 @@ public class DarkTichu extends Application {
 		view = new DarkTichuView(primaryStage, model);
 		controller = new DarkTichuController(model, view);
 		
+		int test =0;
+		int testAzure = 5;
+		//Test Azure
 		 }
 }
