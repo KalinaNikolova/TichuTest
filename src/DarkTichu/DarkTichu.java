@@ -22,11 +22,10 @@ public class DarkTichu extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// Create and initialise the MVC components
+		// Create and initialize the MVC components
 		model = new DarkTichuModel();
 		view = new DarkTichuView(primaryStage, model);
 		controller = new DarkTichuController(model, view);
-		//kjdshfksdlg
 		
 		 }
 }
