@@ -1,5 +1,5 @@
 package DarkTichu;
-//test azure
+//test azure kj
 
 import DarkTichu.controller.DarkTichuController;
 import DarkTichu.model.DarkTichuModel;
