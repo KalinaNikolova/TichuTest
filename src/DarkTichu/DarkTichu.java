@@ -8,12 +8,11 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class DarkTichu extends Application {
-
+// this is new
 	DarkTichuModel model;
 	DarkTichuView view;
 	DarkTichuController controller;
-// this is a new test for azure
-	int test= 5;// this is different
+	
 	
 	public static void main(String[] args) {
 		launch();
@@ -25,6 +24,6 @@ public class DarkTichu extends Application {
 		model = new DarkTichuModel();
 		view = new DarkTichuView(primaryStage, model);
 		controller = new DarkTichuController(model, view);
-		// This is a test for the branch develop
+		
 		 }
 }

@@ -19,7 +19,7 @@ public class Card implements Comparable<Card> {
 				suit = "S";
 				break;
 			case Swords:
-				suit = "SW";
+				suit = "W";
 				break;
 			}
 			return suit;
