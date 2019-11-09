@@ -1,0 +1,5 @@
+GENERAL RULES:
+This is a "5 Cards Stud" simpliest version of poker.
+Use a standart deck of 52 cards. In each round
+there is a winner or a tie depending on the type of hand that the players hold.
+For more information about hand ranking, go to: Help-> Rules-> Hands
