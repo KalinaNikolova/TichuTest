@@ -8,7 +8,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class DarkTichu extends Application {
-// this is new test 201911
+// this is new test 201911 hgjhgk
 	DarkTichuModel model;
 	DarkTichuView view;
 	DarkTichuController controller;
