@@ -8,7 +8,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class DarkTichu extends Application {
-// so is there a change
+// so is there a changew
 	DarkTichuModel model;
 	DarkTichuView view;
 	DarkTichuController controller;
