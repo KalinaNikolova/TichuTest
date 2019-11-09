@@ -64,7 +64,7 @@ public class DarkTichuView {
 
 	// Create the main stage
 	public void createMainStage(String css) {
-		Scene scene = new Scene(this.root, 1600, 650);
+		Scene scene = new Scene(this.root, 1300, 650);
 		scene.getStylesheets().add(getClass().getResource(css).toExternalForm());
 		stage.setTitle("Dark Tichu");
 		stage.setScene(scene);

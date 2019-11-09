@@ -204,7 +204,7 @@ public class DarkTichuController {
 	// take txt file from images folder
 	private void printFile(String fileName) {
 		String text = "";
-		Scanner scanner = new Scanner(this.getClass().getClassLoader().getResourceAsStream("poker/images/" + fileName));
+		Scanner scanner = new Scanner(this.getClass().getClassLoader().getResourceAsStream("dark_Tichu/images/" + fileName));
 		String line;
 		while (scanner.hasNext()) {
 			line = scanner.nextLine();
