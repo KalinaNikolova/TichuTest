@@ -3,6 +3,7 @@ package DarkTichu.model;
 import java.util.ArrayList;
 
 public class DarkTichuModel {
+
 	private final ArrayList<Player> players = new ArrayList<>();
 	private DeckOfCards deck;
 	private int playersCount;
@@ -107,5 +108,9 @@ public class DarkTichuModel {
 		playersCount--;
 		return true;
 	}
+
+	int poperBlooper = 34;
+	String Blooperpooper = "Hello poopers ";
+
 }
 

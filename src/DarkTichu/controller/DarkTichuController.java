@@ -18,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
 
+
 public class DarkTichuController {
 	private DarkTichuModel model;
 	private DarkTichuView view;
