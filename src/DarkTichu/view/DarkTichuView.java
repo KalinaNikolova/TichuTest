@@ -3,24 +3,16 @@ package DarkTichu.view;
 import java.util.ArrayList;
 import java.util.Random;
 
-import DarkTichu.model.Card;
-import DarkTichu.model.Card.Rank;
-import DarkTichu.model.Card.Suit;
 import DarkTichu.model.DarkTichuModel;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.TilePane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
@@ -31,13 +23,13 @@ public class DarkTichuView {
 	private TilePane players;
 	private BorderPane root;
 	private Stage stage;
+
 	// center cards
 	
 	public DarkTichuView(Stage stage, DarkTichuModel model) {
 		this.model = model;
 		this.stage = stage;
-		this.model = model;
-		this.stage = stage;
+		
 		// Create all of the player panes we need, and put them into TilePane
 		players = new TilePane();
 		for (int i = 0; i < model.getPlayersCount(); i++) {
@@ -57,27 +49,32 @@ public class DarkTichuView {
 		root.setTop(topMenu.getMenuBar());
 		root.setCenter(players);
 		root.setBottom(controls);
-
+		
+		
 		// Create new stage
 		createMainStage(randomCss());
 	}
 
 	// Create the main stage
 	public void createMainStage(String css) {
-		Scene scene = new Scene(this.root, 1300, 650);
+		Scene scene = new Scene(this.root,1360, 850);
 		scene.getStylesheets().add(getClass().getResource(css).toExternalForm());
 		stage.setTitle("Dark Tichu");
 		stage.setScene(scene);
 		stage.setResizable(false);
-		getRemovePlayerItem().setDisable(true);
+//		getRemovePlayerItem().setDisable(true);
 		stage.show();
 	}
 
-	// Create stage for the Menu Bar-Help
-	public void createMenuStage(String css, Label lbl, HBox hBox) {
-		Scene scene = new Scene(hBox);
+	// Create stage for the Menu Bar-Help 
+	/*
+	 * Need to add here scrollpane to the different scenes
+	 * 
+	 */
+	public void createMenuStage(String css, Label lbl, ScrollPane sp) {
+		Scene scene = new Scene(sp,600,400);
 		Stage menuStage = new Stage();
-		hBox.getChildren().add(lbl);
+		sp.setContent(lbl);
 		scene.getStylesheets().add(getClass().getResource(css).toExternalForm());
 		menuStage.setTitle("Tichu Rules");
 		menuStage.setScene(scene);
@@ -87,9 +84,9 @@ public class DarkTichuView {
 	// create random css each time when the program run
 	public static String randomCss() {
 		ArrayList<String> myCss = new ArrayList<>();
-		myCss.add("yellow.css");
 		myCss.add("blue.css");
-		myCss.add("poker.css");
+		myCss.add("blue.css");
+		myCss.add("blue.css");
 		Random gen = new Random();
 		int myGen = gen.nextInt(3);
 		String css = myCss.get(myGen);
@@ -158,7 +155,7 @@ public class DarkTichuView {
 	}
 
 	public MenuItem getRemovePlayerItem() {
-		return topMenu.removePlayer;
+		return topMenu.somethingElse;
 	}
 
 	public MenuItem getHighCardsItem() {
@@ -253,13 +250,11 @@ public class DarkTichuView {
 		return controls.btnDeal;
 	}
 
-	public Button getWinnerButton() {
-		return controls.btnWinner;
+	public Button getPassButton() {
+		return controls.btnPass;
 	}
 
-	public Button getAddPlayerButton() {
-		return controls.btnAddPlayer;
-	}
+	
 
 	public Label getWinnerLabel() {
 		return controls.lblWinner;

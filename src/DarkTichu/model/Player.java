@@ -3,8 +3,8 @@ package DarkTichu.model;
 import java.util.ArrayList;
 
 public class Player implements Comparable<Player> {
-	public static final int HAND_SIZE = 5;
-	public int playerNumber;
+	public static final int HAND_SIZE =  6;
+	
 
 	private final String playerName; // This is the ID
 	private final ArrayList<Card> cards = new ArrayList<>();

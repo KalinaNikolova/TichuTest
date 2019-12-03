@@ -31,15 +31,15 @@
 
 .card {
   	-fx-font-size: 18.0px;
-	-fx-padding: 2.0px;
+	-fx-padding: 2px;
     -fx-border-color: black ;
     -fx-border-width: 1.0px;
-	-fx-background-color: snow;
+	-fx-background-color: white;
     -fx-min-width: 50.0;
     -fx-max-width: 100.0;
     -fx-min-height: 80.0;
     -fx-max-height: 200.0;
-   -fx-border-insets: 1.0px;
+    -fx-border-insets: 1.0px;
 	-fx-background-insets: 1.0px;
 }
 
@@ -102,6 +102,7 @@
 	-fx-text-fill: lime;
 	
 }
+
 
 #deck{
 	-fx-background-color: lightblue;

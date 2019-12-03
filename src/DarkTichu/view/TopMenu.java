@@ -12,6 +12,7 @@ public class TopMenu extends MenuBar {
 	Menu file = new Menu("File");
 	MenuItem newGame = new MenuItem("New Game");
 	MenuItem removePlayer = new MenuItem("Remove player");
+	MenuItem somethingElse= new MenuItem("Something else");
 	// Trial
 	Menu trial = new Menu("Trial");
 	// High Cards
@@ -63,6 +64,7 @@ public class TopMenu extends MenuBar {
 	Menu subtMenu = new Menu("Rules");
 	MenuItem hands = new MenuItem("Hands");
 	MenuItem genRuls = new MenuItem("General Rules");
+	
 
 	public TopMenu() {
 		super();

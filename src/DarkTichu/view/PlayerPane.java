@@ -33,10 +33,10 @@ public class PlayerPane extends VBox {
 		this.getChildren().addAll(lblName, hboxCards, playerInfo);
 
 		// Center the cards
-		VBox.setMargin(hboxCards, new Insets(0));
+		VBox.setMargin(hboxCards, new Insets(10));
 
 		// Add CardLabels for the cards
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 6; i++) {
 			Label lblCard = new CardLabel();
 			hboxCards.getChildren().add(lblCard);
 		}
@@ -48,7 +48,7 @@ public class PlayerPane extends VBox {
 	}
 
 	public void highlight() {
-		Image trophy = new Image(this.getClass().getClassLoader().getResourceAsStream("dark_Tichu/images/chips2.png"));
+		Image trophy = new Image(this.getClass().getClassLoader().getResourceAsStream("dark_tichu_files/images/chips2.png"));
 		ImageView trophyView = new ImageView(trophy);
 
 		trophyView.setPreserveRatio(true);

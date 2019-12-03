@@ -7,11 +7,11 @@ public class DarkTichuModel {
 	private final ArrayList<Player> players = new ArrayList<>();
 	private DeckOfCards deck;
 	private int playersCount;
-	private int maxPLayers;
+
 
 	public DarkTichuModel() {
-		playersCount = 2;
-		maxPLayers = 4;
+		playersCount = 4;
+		
 
 		for (int i = 0; i < playersCount; i++) {
 			players.add(new Player("Player " + (i + 1)));

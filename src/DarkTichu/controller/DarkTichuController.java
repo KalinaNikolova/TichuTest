@@ -13,8 +13,8 @@ import javafx.animation.Transition;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
 
@@ -29,16 +29,15 @@ public class DarkTichuController {
 		
 		view.getShuffleButton().setOnAction(e ->shuffle());
 		view.getDealButton().setOnAction(e -> deal());
-		view.getWinnerButton().setOnAction(e -> win());
-		view.getAddPlayerButton().setOnAction(e -> addPlayer());
+		view.getPassButton().setOnAction(e -> win());
 		view.getAboutItem().setOnAction(e -> about());
 		view.getGenRulesItem().setOnAction(e -> genRules());
 		view.getHandsItem().setOnAction(e -> hands());
 		view.getNewGameItem().setOnAction(e -> {
 			newGame();
-			enablePlayerBtn();
+			
 		});
-		view.getRemovePlayerItem().setOnAction(e -> removePlayer());
+		
 		view.getHighCardsItem().setOnAction(e -> loadFromUser("highCards"));
 		view.getHighCardsSplitItem().setOnAction(e -> loadFromUser("highCardsSplit"));
 		view.getPairItem().setOnAction(e -> loadFromUser("pair"));
@@ -83,9 +82,7 @@ public class DarkTichuController {
 			PlayerPane pp = view.getPlayerPane(i);
 			pp.updatePlayerDisplay();
 			updateWinnerLabel();
-			if (model.getPlayersCount() == 4) {
-				view.getAddPlayerButton().setDisable(true);
-			}
+			
 		}
 
 		model.getDeck().shuffle();
@@ -144,38 +141,9 @@ public class DarkTichuController {
 
 	}
 
-	// add player and disable or enable the button
-	private void addPlayer() {
+	
 
-		if (model.getPlayersCount() < 4) {
-			model.addPlayer();
-			view.addPlayer(model, model.getPlayersCount() - 1);
-			if (view.getRemovePlayerItem().isDisable()) {
-				view.getRemovePlayerItem().setDisable(false);
-			}
-			if (model.getPlayersCount() == 4) {
-				view.getAddPlayerButton().setDisable(true);
-			}
-		}
-	}
 
-	// Remove player from the Menu and disable or enable the Item
-	private void removePlayer() {
-		if (model.getPlayersCount() > 2) {
-			model.removePlayer();
-			view.removePlayer();
-			if (view.getAddPlayerButton().isDisabled()) {
-				enablePlayerBtn();
-			}
-			if (model.getPlayersCount() == 2) {
-				view.getRemovePlayerItem().setDisable(true);
-			}
-		}
-	}
-
-	public void enablePlayerBtn() {
-		view.getAddPlayerButton().setDisable(false);
-	}
 
 	// start new game
 	public void newGame() {
@@ -200,18 +168,28 @@ public class DarkTichuController {
 		String fileName = "about.txt";
 		printFile(fileName);
 	}
+	
 
 	// take txt file from images folder
 	private void printFile(String fileName) {
 		String text = "";
-		Scanner scanner = new Scanner(this.getClass().getClassLoader().getResourceAsStream("dark_Tichu/images/" + fileName));
+		Scanner scanner = new Scanner(this.getClass().getClassLoader().getResourceAsStream("Tichu20191811\\" + fileName));
 		String line;
 		while (scanner.hasNext()) {
 			line = scanner.nextLine();
 			text += "\t" + line + "\t\n";
 		}
 		Label lbl = new Label(text);
-		view.createMenuStage("topMenuStage.css", lbl, new HBox());
+		ScrollPane scPane= new ScrollPane();
+		scPane.setContent(lbl);
+		scPane.getContent();
+		
+	
+		
+		lbl.setId("menuLbl");
+		
+		view.createMenuStage("topMenuStage.css", lbl,scPane);
+		//scrollpane need to be added
 	}
 
 	// Show animation on the winner label
