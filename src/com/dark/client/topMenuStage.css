@@ -1,29 +1,11 @@
-.root{
-  -fx-background-color: 
-        #090a0c,
-        linear-gradient(lightblue 0%, #3300FF 50%,lightblue 100%),
-        linear-gradient(#00FFFF, lightblue),
-        radial-gradient(center 50% 0%, radius 180%, rgba(240,240,280,1), rgba(255,255,255,0));
-    -fx-text-fill: white;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
-    -fx-font-family: "Arial";
-    -fx-text-fill: linear-gradient(white, lightblue);
-    -fx-font-size: 30px;
-   
-}
-#menuLbl{
-	-fx-background-color: transparent;
-	-fx-font-family: cursive;
-    -fx-text-fill: skyblue;
-}
 
 .scroll-pane {
-    -fx-background-color: #D6EAF8 ;
-     -fx-background:  #090a0c,
-        linear-gradient(lightblue 0%, #3300FF 50%,lightblue 100%),
-        linear-gradient(#00FFFF, lightblue),
-        radial-gradient(center 50% 0%, radius 180%, rgba(240,240,280,1), rgba(255,255,255,0));
+    -fx-background-color: white ;
+    -fx-background:  black;
    	-fx-border-color:black;
+   	-fx-font-family: "Segoe UI Light";
+    -fx-font-size: 20px;
+ 
 }
 
 .scroll-bar:horizontal, .scroll-bar:vertical{
@@ -56,7 +38,7 @@
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
-    -fx-background-color: skyblue;
+    -fx-background-color: black;
     -fx-background-radius: 50em;
 }
 .scroll-pane > .corner {

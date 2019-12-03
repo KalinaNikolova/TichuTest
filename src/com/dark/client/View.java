@@ -67,12 +67,12 @@ public class View {
 	TextField txtName = new TextField();
 	Label lblPass = new Label("Password:");
 	TextField txtPass = new TextField();
-	Label lblRepeat = new Label("Password repeat:");
+	Label lblRepeat = new Label("Repeat password:");
 	TextField txtRepeat = new TextField();
 	Label lblEmpty = new Label("-");
 	Button btnConnect = new Button("Login");//Connect
 	Button btnRegister = new Button("Register");
-	Button btnNew = new Button("Register");
+	Button btnNew = new Button("Sign-Up");
 	BorderPane buttons = new BorderPane();
 	
 	// Chat area
@@ -194,7 +194,7 @@ public class View {
 		
 		
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("poker.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("tichu.css").toExternalForm());
 		stage.setScene(scene);
 		stage.setMaximized(true);
 				

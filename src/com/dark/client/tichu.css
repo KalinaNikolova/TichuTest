@@ -19,13 +19,15 @@
   	-fx-font-size: 16;
 }
 .button{
-	-fx-font-size: 18;
+	-fx-font-size: 12;
 	-fx-background-color: black ;
 	-fx-text-fill: white ;
 	-fx-font-family: cursive;
-	-fx-background-radius: 30.0;
+	-fx-background-radius: 20.0;
 	-fx-font-weight: bold;
 	-fx-underline: true ; 
+	-fx-border-color: white;
+	-fx-border-radius: 20;
 	
 }
 #controlArea {
@@ -91,17 +93,48 @@
 	-fx-border-width:0px;
 }
 .menu-bar{
- 	-fx-background-color:transparent ;
+ 	-fx-background-color:transparent  ;
   	-fx-border-color:  transparent;
+
 }
 
 .menu-bar .label {
-    -fx-font-size: 16.0;
+    -fx-font-size: 20.0;
     -fx-font-family: "Segoe UI Light";
     -fx-text-fill: black;
     -fx-padding: 1.0px ;
-    }
+    -fx-background-color: transparent;
+   	-fx-font-weight: bold;
+
+
     
+    }
+.menu:hover,
+.menu:showing, /* selects Menu in MenuBar, if shown */
+.menu-item:focused {
+    -fx-background-color: darkgrey;
+}
+
+.menu-item {
+    -fx-background-color: darkgray;
+    -fx-text-fill: white;
+ 
+
+}
+
+.menu-item:focused{
+  -fx-background-color: transparent;
+}
+
+.context-menu {
+    -fx-background-color: transparent;
+
+}
+
 .menu-item .label{
-    -fx-font-size: 16.0 pt;
+    -fx-font-size: 18;
+    -fx-background-color:transparent ;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+
 }

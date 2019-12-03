@@ -15,6 +15,9 @@ import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
 public class Controller implements Observer{
@@ -24,6 +27,10 @@ public class Controller implements Observer{
 	public Controller(Model model, View view) {
 //		this.model = model;
 		this.view = view;
+		
+		view.getGenRulesItem().setOnAction(e->genRules());
+		view.getAboutItem().setOnAction(e->about());
+		view.getHandsItem().setOnAction(e -> hands());
 		
 		view.btnConnect.setOnAction( event -> {
 			boolean userFound=false;
@@ -218,6 +225,34 @@ public class Controller implements Observer{
 			}
 		}
 	}
+	public void hands() {
+		String fileName = "hands.txt";
+		printFile(fileName);
+	}
+
+	public void genRules() {
+		String fileName = "generalRules.txt";
+		printFile(fileName);
+	}
+
+	public void about() {
+		String fileName = "about.txt";
+		printFile(fileName);
+	}
+
+	// take txt file from images folder
+	private void printFile(String fileName) {
+		String text = "";
+		Scanner scanner = new Scanner(this.getClass().getClassLoader().getResourceAsStream("tichu/images/" + fileName));
+		String line;
+		while (scanner.hasNext()) {
+			line = scanner.nextLine();
+			text += "\t" + line + "\t\n";
+		}
+		Label lbl = new Label(text);
+		view.createMenuStage("topMenuStage.css", lbl, new ScrollPane());
+	}
+	
 
 	@Override
 	public void update(Observable newstTurn, Object newValue) {
