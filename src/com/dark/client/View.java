@@ -72,7 +72,7 @@ public class View {
 	Label lblEmpty = new Label("-");
 	Button btnConnect = new Button("Login");//Connect
 	Button btnRegister = new Button("Register");
-	Button btnNew = new Button("New");
+	Button btnNew = new Button("Register");
 	BorderPane buttons = new BorderPane();
 	
 	// Chat area
