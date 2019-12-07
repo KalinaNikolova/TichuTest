@@ -77,6 +77,8 @@ public class View {
 	
 	// Chat area
 	TextArea txtChatArea = new TextArea();
+
+	
 		
 	// Bottom controls
 	TextField txtChatMessage = new TextField();
@@ -151,6 +153,12 @@ public class View {
 
 		connectBox.getChildren().addAll(btnChat);
 		connectBox.setAlignment(Pos.CENTER_RIGHT);
+		
+		/*@Author Dominic
+		 *  
+		 */
+		txtChatArea.setEditable(false);
+		
 		chatPane.getChildren().addAll(connectBox,txtChatArea,chatBox);
 		chatPane.setPrefWidth(430);
 		chatPane.setMinWidth(430);
