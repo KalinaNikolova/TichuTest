@@ -1,12 +1,12 @@
 Hands Ranking
-
+//@Dominic rules retrieved from RIO GRANDE'S manual or FATA MORGANA SPIELE, Bern and made partially made up examples.
 1. Royal Flush: consist of the ace, king, queen, jack and ten of a single suit.
 2. Straight Flush: Five cards in a sequence, all of the same suit.
 3. Four of a Kind: Four cards of the same rank and one side card.
 4. Full House: Three cards of the same rank and two cards of a different matching rank.
 5. Flush: Five cards of the same suit, but not in sequence.
-6. Straight: Five cards in sequence, but not of the same suit.
-7. Three of a Kind: Three cards of the same rank and two unrelated side cards.
-8. Two Pair: Two different pairs.
-9. Pair: Two cards of matching rank and three unrelated side cards. 
-10. High Card: Any hand that does not qualify under the categories listed.
+6. A full house (trio & pair). E.g. 3, 3, 3, 9, 9.
+7. A trio of cards of equal rank. E.g. 9, 9, 9.
+8. A sequence of pairs of adjacent value. E.g. J, J, Q, Q, K, K.
+9. A pair of cars of equal rank. E.g. 9, 9
+10. A single card. E.g. 9
