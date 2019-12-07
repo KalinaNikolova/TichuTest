@@ -38,8 +38,8 @@ It can be played: as a joker - it can take the place of any normal card in a com
 the card it's played after. If an eight is the current highest card played, the Phoenix counts as 8.5, and can be beaten by a nine or higher. 
 
 The Phoenix can beat an ace, but not the Dragon. If led, the Phoenix counts as 1.5. The Dragonis the highest individual card and is worth 25 points. 
-When single cards have been played, it is higher, even than an ace or �ace and a half� (the Phoenix over an ace), and can itself only be beaten by a bomb. 
-However: it cannot be part of a sequence. If the noble Dragonwinsa trick, he gives the trick (including its own 25 points) to the opponent of its holder�s choice. 
+When single cards have been played, it is higher, even than an ace or ace and a half (the Phoenix over an ace), and can itself only be beaten by a bomb. 
+However: it cannot be part of a sequence. If the noble Dragonwinsa trick, he gives the trick (including its own 25 points) to the opponent of its holder's choice. 
 
 A Bombs: a sequence of at least five consecutive cards in the same suit or all four cards of the same rank Bombs can be played at any time, even out of turn, to take a trick. 
 They beat anything, be it a single card or a combination. A higher bomb will beat a lower bomb, so a bomb can be played on a bomb. The rank of bombs is determined: 
@@ -62,8 +62,8 @@ these rules, we offer the following from our small experience. Naturally, when p
 highest culinary delights of Nanking. First, try to get rid of your rotten cards (low singletons and pairs). Also, be sparing with your aces, Dragons, and Bombs early in the hand. 
 A player who has a singleton 4 after a dazzling display of power, was either the victim to an unexpected Bomb or does not understood the game yet. Keep an eye on the score. 
 If the score is, for example 630:970, a grand tichu is begging to be called.
-Unreservedly support your partner�s �tichu�. When playing the Mah Jong, do not demand a card which might break up your partner�s bomb and do not take his trick (this is certainly legal, 
-but it is likely dangerous unless very low ranks are involved) Try to bring down an opponent�s �tichu" when the tichant is the player to his left by making him take his tricks expensively.
+Unreservedly support your partner's tichu. When playing the Mah Jong, do not demand a card which might break up your partner�s bomb and do not take his trick (this is certainly legal, 
+but it is likely dangerous unless very low ranks are involved) Try to bring down an opponent's tichu when the tichant is the player to his left by making him take his tricks expensively.
 
 
 FREQUENTLY ASKED QUESTIONS Can the Hound be bombed? No, Bombs cannot be used to take the hound (and the right to lead). Bombs can only be played (even out of turn) on a card combination 
