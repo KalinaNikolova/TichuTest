@@ -77,7 +77,7 @@ public class View {
 	
 	// Chat area
 	TextArea txtChatArea = new TextArea();
-		
+
 	// Bottom controls
 	TextField txtChatMessage = new TextField();
 	Button btnSend = new Button("Send");
@@ -97,6 +97,7 @@ public class View {
 		//Fix the host number (maybe better to be set on each player manualy)
 		txtIpAddress.setText("localhost");
 		txtPort.setText("8585");
+		
 		
 		//dealing, init
 		for(int i=0;i<players.length;i++) {
@@ -148,7 +149,9 @@ public class View {
 		txtChatMessage.setMaxWidth(385);
 
 		chatBox.getChildren().addAll(txtChatMessage,btnSend);
-
+		
+	
+		
 		connectBox.getChildren().addAll(btnChat);
 		connectBox.setAlignment(Pos.CENTER_RIGHT);
 		chatPane.getChildren().addAll(connectBox,txtChatArea,chatBox);
@@ -195,21 +198,27 @@ public class View {
 		
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("tichu.css").toExternalForm());
+		
 		stage.setScene(scene);
 		stage.setMaximized(true);
+		stage.getIcons().add(new Image("tichu/images/dragon.png"));
 				
 		this.stage = stage;
 //		this.model = model;
 
 		stage.setTitle("Tichu Client");
 	}
+	
+	// Create stages for the Top Menu
 	public void createMenuStage(String css, Label lbl, ScrollPane sp) {
 		Scene scene = new Scene(sp,600,400);
 		Stage menuStage = new Stage();
 		sp.setContent(lbl);
 		scene.getStylesheets().add(getClass().getResource(css).toExternalForm());
-		menuStage.setTitle("Tichu Rules");
+		
 		menuStage.setScene(scene);
+		menuStage.getIcons().add(new Image("tichu/images/Notebook Emoji.png")); 
+		menuStage.setTitle("Tichu Rules");
 		menuStage.show();
 	}
 	protected void start() {

@@ -24,7 +24,7 @@ a full house only by a higher full house (in full houses the value of the trio i
 As soon as 3 players pass in turn order, the player who played the last (highest) combination gathers in the trick and leads a new combination. 
 If this player has no cards left, he has gone out and the right to lead passes to his right-hand neighbor (passing further to the right if the latter has gone out as well). 
 
-
+--------------------------
 THE SPECIAL CARDS The Mah Jongis an interesting card of mixed reputation, with the following properties: its owner starts the hand (but need not lead the Mah Jong). 
 The Mah Jong ranks as a 1 and is, therefore, the lowest card in the deck. 
 As a one, it may be included in a suitable sequence (e.g. 1,2,3,4,5). 
