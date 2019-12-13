@@ -55,7 +55,7 @@ public class View {
 	HBox connectBox=new HBox();
 	
 	protected Stage stage;
-//	private Model model;
+	private Model model;
 
 	// Top controls
 	VBox loginBox = new VBox();
@@ -194,8 +194,6 @@ public class View {
 		tichuTable.getChildren().addAll(tichu,chatPane,login);
 		StackPane.setAlignment(chatPane,Pos.BOTTOM_RIGHT);
 		
-		
-		
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("tichu.css").toExternalForm());
 		
@@ -204,7 +202,7 @@ public class View {
 		stage.getIcons().add(new Image("tichu/images/dragon.png"));
 				
 		this.stage = stage;
-//		this.model = model;
+		this.model = model;
 
 		stage.setTitle("Tichu Client");
 	}
