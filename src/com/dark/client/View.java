@@ -78,7 +78,7 @@ public class View {
 	HBox connectBox2=new HBox();
 	
 	protected Stage stage;
-//	private Model model;
+	private Model model;
 
 	// Top controls
 	VBox loginBox = new VBox();
@@ -254,8 +254,6 @@ public class View {
 		StackPane.setAlignment(chatPane,Pos.BOTTOM_RIGHT);
 		StackPane.setAlignment(chatPane2,Pos.BOTTOM_LEFT);
 		
-		
-		
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("tichu.css").toExternalForm());
 
@@ -267,7 +265,7 @@ public class View {
 		
 		
 		this.stage = stage;
-//		this.model = model;
+		this.model = model;
 
 		stage.setTitle("Tichu Client");
 	}

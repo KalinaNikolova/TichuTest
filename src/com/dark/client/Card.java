@@ -1,4 +1,5 @@
 package com.dark.client;
+import java.util.Collection;
 
 
 //this class is taken from PokerGame2019 project provided by prof. Bradley Richards
@@ -48,6 +49,7 @@ public class Card implements Comparable<Card> {
 			return str;
 		}
     };
+    
     private int ordinalint;
     private Suit suit;
     private Rank rank;
