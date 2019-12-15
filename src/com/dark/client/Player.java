@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Player {
     public static final int HAND_SIZE = 13;
     
-    private final String playerName;
+    private String playerName; // final removed
     private final ArrayList<Card> cards = new ArrayList<>();
     
     public Player(String playerName) {
@@ -19,7 +19,10 @@ public class Player {
     public String getPlayerName() {
         return playerName;
     }
-    
+    //added
+    public void setPlayerName(String name) {
+        this.playerName=name;
+    }
     public ArrayList<Card> getCards() {
         return cards;
     }

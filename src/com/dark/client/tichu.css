@@ -1,7 +1,7 @@
 .root {
 	-fx-background-color: transparent;
 	-fx-padding: 20px 20px 20px 20px;
-	-fx-background-image: url("dragon_background.png ");
+	-fx-background-image: url("dragon-49.gif");
     -fx-background-repeat: stretch;   
     -fx-background-size: 1100 506;
     
@@ -15,7 +15,7 @@
     -fx-max-width: 2000.0;
   	-fx-alignment: center;
   	-fx-font-weight: bold;
-  	-fx-text-fill: white;
+  	-fx-text-fill: black;
   	-fx-font-size: 16;
 }
 .button{
@@ -43,7 +43,13 @@
     -fx-border-color: black;
     -fx-border-width: 2.0px;
 }
-
+.table {
+ /* 	-fx-background-color: green;*/
+/* 	-fx-padding: 5.0px;
+    -fx-border-color: black;*/
+/*    -fx-border-width: 0px;*/
+/*   -fx-border-radius: 3px;*/
+}
 .card {
   -fx-font-size: 18px;
 	-fx-padding: 2px;

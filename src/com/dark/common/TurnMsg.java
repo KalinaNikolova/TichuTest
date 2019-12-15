@@ -1,10 +1,10 @@
 package com.dark.common;
-/**
- * 
- * @author Kalina
- * message for taking turn
- */
+
 public class TurnMsg extends Message {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int position;
 	private String content;
 	

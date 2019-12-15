@@ -1,11 +1,10 @@
 package com.dark.common;
-/**
- * 
- * This class has been taken from ch.fhnw.richards.lecture14_chatLab.v3_commons;
- * No changes made
- *
- */
+
 public class ChatMsg extends Message {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String content;
 	

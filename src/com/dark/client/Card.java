@@ -79,12 +79,34 @@ public class Card implements Comparable<Card> {
     //ADD
     @Override
 	public int compareTo(Card that) {
-		// TODO Auto-generated method stub
-		if (this.rank.ordinal() > that.rank.ordinal()) {
-			return 1;
-		} else if (this.rank.ordinal() < that.rank.ordinal()) {
-			return -1;
-		}
-		return 0;
+		if(this.rank.ordinal()>that.rank.ordinal())return 1;
+		else if(this.rank.ordinal()<that.rank.ordinal())return -1;
+		else return 0;
 	}
+    
+  //ne savpada s compare// drugi structuri ot danni
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((rank == null) ? 0 : rank.hashCode());
+		result = prime * result + ((suit == null) ? 0 : suit.hashCode());
+		return result;
+	}
+    @Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Card other = (Card) obj;
+		if (rank != other.rank)
+			return false;
+		if (suit != other.suit)
+			return false;
+		return true;
+	}
+    
 }

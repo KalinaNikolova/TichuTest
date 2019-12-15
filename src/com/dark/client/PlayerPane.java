@@ -26,14 +26,14 @@ public class PlayerPane extends VBox {
     // Link to player object
     private Player player;
     private int x=0;
-    
+    BorderPane topPlayer; 
     public PlayerPane() {
         super(); // Always call super-constructor first !!
         this.getStyleClass().add("player"); // CSS style class
     	
     	picture.setGraphic(null);
         //bottom.getChildren().addAll(picture, lblEvaluation);
-    	BorderPane topPlayer=new BorderPane();
+    	topPlayer=new BorderPane();
     	topPlayer.setPrefWidth(435);
     	topPlayer.setMaxWidth(435);
     	topPlayer.setMinWidth(435);
@@ -64,6 +64,7 @@ public class PlayerPane extends VBox {
 	//not ok
 	public void setName(String name) {
 		lblName.setText(name);
+		player.setPlayerName(name);
 	}
 
     public void updatePlayerDisplay() {

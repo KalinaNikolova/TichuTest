@@ -1,6 +1,6 @@
 GENERAL RULES:
 
-TICHU for 4 players.
+TICHU for 4 players.----
 
 The cards are 52 with their four suits (Jade, Swords, Pagodas, Stars), each of 13 values, correspond to a normal bridge deck. The ace is the highest in each suit and the 2 is the lowest. 
 The 10 ranks between the 9 and the jack, as in most card games. Four extra cards expand the deck to 56 cards: the Dragon, the Phoenix, the Hound, and the Hemp-Sparrow (or Mah Jong). 

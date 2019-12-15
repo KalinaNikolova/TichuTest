@@ -1,11 +1,10 @@
 package com.dark.common;
-/**
- * 
- * @author Kalina
- * message for putting the players in the table
- *
- */
+
 public class PosMsg extends Message {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int position;
 	
 	public PosMsg(int position) {
