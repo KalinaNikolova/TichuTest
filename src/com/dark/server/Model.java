@@ -126,9 +126,9 @@ public class Model {
 			}
 			logger.info("%%%%%%%%%% SEND:  "+this.tableCards+"   %%%%%%%%%%%%%%%");
 			DealAllMsg dealAllMsg = new DealAllMsg(hands,clients.size()-1,this.tableCards);//i not becessary
-				//send cliend DealMsg with his cards
+				
+			//send cliend DealMsg with his cards
 			broadcast(dealAllMsg);
-			//dealMessages[clients.size()-1] = new DealAllMsg(players[clients.size()-1].getCards(),clients.size()-1);
 		}
 	}
 	public void broadcast(TurnMsg outMsg) {
@@ -146,35 +146,21 @@ public class Model {
 			clients.get(i).send(outMsg[i]);
 			//send cliend DealMsg with his cards
 		}
-//		for(int i=4;i<clients.size();i++) {
-//			logger.info("Dealing cards to client "+i);
-//			clients.get(i).send(outMsg[i]);
-//			//send cliend DealMsg with his cards
-//		}
+
 		
 	}
 	public void broadcast(DealAllMsg outMsg) {
 		logger.info("%%%%%%%%%%%%%%%   "+this.tableCards+"   %%%%%%%%%%%%%%%");	
 		logger.info("%%%%%%%%%%%%%%%   "+outMsg.getCards()+"   %%%%%%%%%%%%%%%");	
-//		for(int i=4;i<clients.size();i++) {//4
-//			logger.info("Dealing cards to kimiks "+i);
-//			clients.get(i).send(outMsg[i]);
-//			//send cliend DealMsg with his cards
-//		}
+
 		clients.get(outMsg.getPosition()).send(outMsg);
-//		for(int i=4;i<clients.size();i++) {
-//			logger.info("Dealing cards to client "+i);
-//			clients.get(i).send(outMsg[i]);
-//			//send cliend DealMsg with his cards
-//		}
+
 		
 	}
 	public void broadcast(PlayMsg outMsg) {
 		logger.info("Broadcasting played cards to clients....."+outMsg.getCards());
 		clients.get(outMsg.getPosition()).send(outMsg);
-//		for (Client c : clients) {
-//			c.send(outMsg);
-//		}
+
 		this.tableCards=outMsg.getCards();//copy?
 		for (int i=0;i<outMsg.getCards().size();i++) {
 			players[outMsg.getPosition()].getCards().remove(outMsg.getCards().get(i));
@@ -191,30 +177,23 @@ public class Model {
 		return deck;
 	}
     private void shuffle() {
-//    	for (int i = 0; i < 4; i++) {//PokerGame.NUM_PLAYERS
-//    		Player p = players[i];
-//    		p.discardHand();
-//    		////PlayerPane pp = view.getPlayerPane(i);
-//    		////pp.updatePlayerDisplay();
-//    	}
+
 
     	getDeck().shuffle();
     }
     private void deal() {
-//    	int cardsRequired = PokerGame.NUM_PLAYERS * Player.HAND_SIZE;
+
     	int cardsRequired = 4*13;
     	DeckOfCards deck = getDeck();
     	if (cardsRequired <= deck.getCardsRemaining()) {
-        	for (int i = 0; i < 4; i++) {//PokerGame.NUM_PLAYERS
+        	for (int i = 0; i < 4; i++) {
         		Player p = players[i];
         		p.discardHand();
-        		for (int j = 0; j < 13; j++) {//Player.HAND_SIZE
+        		for (int j = 0; j < 13; j++) {
         			Card card = deck.dealCard();
         			p.addCard(card);
         		}
-        		//p.evaluateHand();
-        		//PlayerPane pp = view.getPlayerPane(i);
-        		//pp.updatePlayerDisplay();
+        		
         	}
     	} else {
             Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");

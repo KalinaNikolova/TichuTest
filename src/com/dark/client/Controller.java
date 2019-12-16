@@ -48,17 +48,17 @@ public class Controller implements Observer{
 		view.getAboutItem().setOnAction(e -> about());
 		view.getHandsItem().setOnAction(e -> hands());
 
-		view.play.setOnAction(e -> {
-			boolean play = true;
-			if (view.play.getText() == "ON") {
-				view.mediaPlayer.setVolume(100);
-
-			} else {
-				view.play.setText("OFF");
-				view.mediaPlayer.setVolume(0);
-
+		view.play.setOnAction(e->{
+			if(view.play.getText()=="Sound ON") {
+				view.stopMusic();
+				view.play.setText("Sound OFF");
+				view.play.setStyle("-fx-text-fill:white");
 			}
-
+			else{
+				view.play();
+				view.play.setText("Sound ON");	
+				view.play.setStyle("-fx-text-fill:red");
+			}
 		});
 		//////////////////////////////////////////////////////////
 		
@@ -71,7 +71,7 @@ public class Controller implements Observer{
 					if(view.txtName.getText().equals(userAndPass[0])&&view.txtPass.getText().equals(userAndPass[1])) {
 						userFound=true;
 					}	
-					//go to 308 and and ServeClient 36
+					
 					String info = "";
 					for(PlayerPane playerPane:view.playerPanes) {
 						String[] names = playerPane.getName().split(":");
@@ -119,7 +119,7 @@ public class Controller implements Observer{
 		
 		view.btnRegister.setOnAction( event -> {
 			if(view.txtName.getText()!=null&&!view.txtName.getText().equals("")&&view.txtPass.getText().equals(view.txtRepeat.getText())&&view.txtPass.getText()!=null&&!view.txtPass.getText().equals("")) {
-				//view.txtRepeat.setText(view.txtName.getText()+":"+view.txtPass.getText());
+				
 				boolean found = false;
 				try(Scanner reader = new Scanner(new File("users.txt"))){
 					while(reader.hasNextLine()) {
@@ -131,7 +131,7 @@ public class Controller implements Observer{
 						}
 					}
 				} catch (FileNotFoundException e3) {
-					// TODO Auto-generated catch block
+					
 					e3.printStackTrace();
 				}
 				if(!found) {
@@ -197,11 +197,11 @@ public class Controller implements Observer{
 				
 				//////////////
 				Player table = new Player("Table");
-				boolean isMoved=false;///declaration only
+				boolean isMoved=false;
 				isMoved=false;
-				//for(int mi=0;mi<4;mi++) {
+				
 				for(int i=0;i<4;i++) {
-					//final int i = mi;
+					
 					ArrayList<Card> cards = new ArrayList<>(13);//
 					for(int j=0;j<view.playerPanes[i].getHboxCards().getChildren().size();j++) {
 
@@ -211,8 +211,8 @@ public class Controller implements Observer{
 							cards.add(cardLabel.getCard());
 							
 							view.players[i].getCards().remove(cardLabel.getCard());
-//							
-							isMoved=true;//depends on the last card
+						
+							isMoved=true;
 						}
 					}
 					if(isMoved) {
@@ -231,9 +231,9 @@ public class Controller implements Observer{
 						view.playerPanes[i].setPlayer(view.players[i]);
 					}
 					if(isMoved)
-					for(int j=0;j<13;j++) {//////////clear only moved
+					for(int j=0;j<13;j++) {
 						((CardLabel)view.playerPanes[i].getHboxCards().getChildren().get(j)).setLayoutY(0);
-						view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().remove("clicked");//??
+						view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().remove("clicked");
 						view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().remove("allowed");
 					}
 					
@@ -274,7 +274,7 @@ public class Controller implements Observer{
 				String[] names = newValue.split(":");
 				for(int i=0;i<4;i++) {
 					if(!view.playerPanes[i].getName().contains(":")) {
-						//view.playerPanes[i].getp.setName(view.playerPanes[i].getName()+":"+names[i]
+					
 						view.playerPanes[i].setName(view.playerPanes[i].getName()+":"+names[i]);
 					}				
 				}
@@ -510,13 +510,13 @@ public class Controller implements Observer{
 					view.info2.setText(hands);
 					
 					ArrayList<Card> tableCards = deal.getTable();
-					//view.info.setText("i:"+i+"size:"+cards.size());
+					
 					Player table = new Player("Table");
-//?					boolean isMoved=false;
+			
 				if(tableCards!=null) {
 						for(Card card:tableCards) {
 							table.addCard(card);
-//							view.players[i].getCards().remove(card);
+
 						}
 
 							TablePane tablePane = new TablePane();

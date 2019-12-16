@@ -99,11 +99,10 @@ public class View {
 	Button btnNew = new Button("New");
 	BorderPane buttons = new BorderPane();
 	
-	Button play= new Button("ON");
+	Button play= new Button("Sound ON");
 	MediaPlayer mediaPlayer;
-	Slider volume;
-	ToggleGroup group= new ToggleGroup();
-	Button testToggle= new Button();
+	
+	
 	
 	
 	
@@ -123,16 +122,17 @@ public class View {
 
 	
 	public View(Stage stage, Model model) {
-		volume= new Slider(0.0, 1.0, 1.0);
+		
 		topMenu.setPrefWidth(root.getWidth());
-		volume.setMaxWidth(20);
+		
 		lblName.setStyle("-fx-text-fill:white");
 		lblPass.setStyle("-fx-text-fill:white");
-		
+		play.setMaxSize(120,5);
+		play.setStyle("-fx-text-fill:red");
 		
 		menu.getChildren().addAll(allowButton,info1,info2);//
 
-		root.getChildren().addAll(topMenu.getMenuBar(),play, volume,menu,tichuTable);
+		root.getChildren().addAll(topMenu.getMenuBar(),play,menu,tichuTable);
 		
 		txtIpAddress.setText("localhost");
 		txtPort.setText("8585");
@@ -197,7 +197,6 @@ public class View {
 		chatPane.setMaxHeight(20);
 		connectBox2.getChildren().addAll(btnChat2);
 		connectBox2.setAlignment(Pos.CENTER_LEFT);
-//		chatPane2.getChildren().addAll(connectBox2,txtChatArea2,chatBox2);
 		chatPane2.getChildren().addAll(connectBox2,guestList,chatBox2);
 		chatPane2.setPrefWidth(430);
 		chatPane2.setMinWidth(430);
@@ -206,8 +205,8 @@ public class View {
 		chatPane2.setMinHeight(20);
 		chatPane2.setMaxHeight(20);
 		guestList.setPrefWidth(100);//
-		guestList.setPrefHeight(70);//
-//		list.getChildren().add(guestList);//
+		guestList.setPrefHeight(70);///
+
 		guestList.setItems(model.guests);
 		
 		login.setPrefWidth(tichuTable.getWidth());
@@ -274,12 +273,17 @@ public class View {
 		public void playMusic(String musicFile) {
 			File file= new File(musicFile);
 			Media sound = new Media(file.toURI().toString());
-			MediaPlayer mediaPlayer = new MediaPlayer(sound);
+			mediaPlayer = new MediaPlayer(sound);
 			mediaPlayer.play();
 		}
 		
+		
 		public void stopMusic() {
+			
 			mediaPlayer.stop();
+		}
+		public void play() {
+			mediaPlayer.play();
 		}
 		
 		
@@ -404,14 +408,7 @@ public class View {
 
 		
 
-			public Slider getVolume() {
-				return volume;
-			}
-
-			public void setVolume(Slider volume) {
-				this.volume = volume;
-			}
-
+	
 		
 		
 

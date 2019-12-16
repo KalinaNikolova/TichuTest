@@ -28,20 +28,20 @@ public class PlayerPane extends VBox {
         this.getStyleClass().add("player"); // CSS style class
     	
     	picture.setGraphic(null);
-        //bottom.getChildren().addAll(picture, lblEvaluation);
+       
     	topPlayer=new BorderPane();
-    	//BorderPane topPlayer=new BorderPane();
+    
     	topPlayer.setPrefWidth(435);
     	topPlayer.setMaxWidth(435);
     	topPlayer.setMinWidth(435);
     	topPlayer.setLeft(playButton);
     	topPlayer.setCenter(lblName);
     	topPlayer.setRight(passButton);
-    	//top.getChildren().add(topPlayer);//test
+    
     	
         // Add child nodes
-        this.getChildren().addAll(topPlayer, hboxCards, bottom);//lblName,lblEvaluation
-       // this.getChildren().addAll(top, hboxCards, bottom);//lblName,lblEvaluation
+        this.getChildren().addAll(topPlayer, hboxCards, bottom);
+      
         
         // Add CardLabels for the cards
         for (int i = 0; i < Player.HAND_SIZE; i++) {

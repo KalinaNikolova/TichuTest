@@ -74,7 +74,7 @@ public class Card implements Comparable<Card>, Serializable{
 		else if(this.rank.ordinal()<that.rank.ordinal())return -1;
 		else return 0;
 	}
-	//ne savpada s compare// drugi structuri ot danni
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
