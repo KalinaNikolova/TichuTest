@@ -188,7 +188,7 @@ public class DeckOfCards {
 		if (s == 'J') suit = Card.Suit.Jade;
 		if (s == 'P') suit = Card.Suit.Pagodas;
 		if (s == 'S') suit = Card.Suit.Stars;
-		if (s == 'W') suit = Card.Suit.Swords;
+		if (in.charAt(2) == 'w') suit = Card.Suit.Swords;
 
 		return new Card(suit, rank);
 	}

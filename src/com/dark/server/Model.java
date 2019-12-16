@@ -6,7 +6,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
-import com.dark.client.Card;
 import com.dark.client.Player;
 import com.dark.common.ChatMsg;
 import com.dark.common.DealAllMsg;
@@ -16,21 +15,19 @@ import com.dark.common.PlayMsg;
 import com.dark.common.PosMsg;
 import com.dark.common.TurnMsg;
 
+import com.dark.client.Card;
+
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-/**
- * This class has been taken from
- * ch.fhnw.richards.lecture14_chatLab.v3_server
- * Some changes made in order to be adapted to our project
- */
+
 public class Model {
 	protected final ObservableList<Client> clients = FXCollections.observableArrayList();
 
 	Player[] players = {new Player("North"),new Player("East"),new Player("South"),new Player("West")};
-	
-private DeckOfCards deck;
+	private DeckOfCards deck;
 	
 	private ArrayList<Card> tableCards;
 	
@@ -76,16 +73,19 @@ private DeckOfCards deck;
 	public void stopServer() {
 		logger.info("Stop all clients");
 		for (Client c : clients) c.stop();
-
+		Platform.exit();
 		logger.info("Stop server");
 		stop = true;
 		if (listener != null) {
 			try {
+				Platform.exit();/////////////////
 				listener.close();
 			} catch (IOException e) {
 				// Uninteresting
 			}
+			
 		}
+		
 	}
 
 	public void broadcast(ChatMsg outMsg) {
@@ -146,15 +146,27 @@ private DeckOfCards deck;
 			clients.get(i).send(outMsg[i]);
 			//send cliend DealMsg with his cards
 		}
-
+//		for(int i=4;i<clients.size();i++) {
+//			logger.info("Dealing cards to client "+i);
+//			clients.get(i).send(outMsg[i]);
+//			//send cliend DealMsg with his cards
+//		}
 		
 	}
 	public void broadcast(DealAllMsg outMsg) {
 		logger.info("%%%%%%%%%%%%%%%   "+this.tableCards+"   %%%%%%%%%%%%%%%");	
 		logger.info("%%%%%%%%%%%%%%%   "+outMsg.getCards()+"   %%%%%%%%%%%%%%%");	
-
+//		for(int i=4;i<clients.size();i++) {//4
+//			logger.info("Dealing cards to kimiks "+i);
+//			clients.get(i).send(outMsg[i]);
+//			//send cliend DealMsg with his cards
+//		}
 		clients.get(outMsg.getPosition()).send(outMsg);
-
+//		for(int i=4;i<clients.size();i++) {
+//			logger.info("Dealing cards to client "+i);
+//			clients.get(i).send(outMsg[i]);
+//			//send cliend DealMsg with his cards
+//		}
 		
 	}
 	public void broadcast(PlayMsg outMsg) {
@@ -200,7 +212,9 @@ private DeckOfCards deck;
         			Card card = deck.dealCard();
         			p.addCard(card);
         		}
-        	
+        		//p.evaluateHand();
+        		//PlayerPane pp = view.getPlayerPane(i);
+        		//pp.updatePlayerDisplay();
         	}
     	} else {
             Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");

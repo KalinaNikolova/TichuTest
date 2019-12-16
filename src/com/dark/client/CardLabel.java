@@ -23,21 +23,14 @@ public class CardLabel extends Label {
 			this.setGraphic(imv);
 		} else {
 			this.setGraphic(null);
-			//ADD?
-			// load back cover of the cards
-//			Image image = new Image(
-//					getClass().getClassLoader().getResourceAsStream("dark_tichu_files/images/tichu12.png"));
-//			ImageView imv = new ImageView(image);
-//			imv.fitWidthProperty().bind(this.widthProperty());
-//			imv.fitHeightProperty().bind(this.heightProperty());
-//			this.setGraphic(imv);
 		}
 	}
 
 	private String cardToFileName(Card card) {
 		String rank = card.getRank().toString();
 		String suit = card.getSuit().toString();
-		return suit + "_"+ rank+".png";//ADD
+		return rank + "_of_" + suit + ".png";
+	
 	}
 	//
 	public Card getCard() {

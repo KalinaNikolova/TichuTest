@@ -1,16 +1,12 @@
 package com.dark.client;
 
 import java.util.ArrayList;
-/**
- * 
- * @author Kalina
- *
- */
+
 public class Player {
     public static final int HAND_SIZE = 13;
     
-    private String playerName; // final removed
-    private final ArrayList<Card> cards = new ArrayList<>();
+    private String playerName;////final removed
+    private ArrayList<Card> cards = new ArrayList<>();//////
     
     public Player(String playerName) {
         this.playerName = playerName;
@@ -23,6 +19,7 @@ public class Player {
     public void setPlayerName(String name) {
         this.playerName=name;
     }
+    
     public ArrayList<Card> getCards() {
         return cards;
     }

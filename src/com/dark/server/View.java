@@ -10,12 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-/**
- * Based on ch.fhnw.richards.lecture14_chatLab.v3_commons;
- * 
- * @author Kalina
- *
- */
+
 public class View {
 	protected Stage stage;
 	private Model model;
@@ -33,7 +28,7 @@ public class View {
 		this.stage = stage;
 		this.model = model;
 		
-		txtPort.setText("8585"); // set port
+		txtPort.setText("8585");
 		
 		// Prevent labels and button from shrinking below their preferred size
 		lblPort.setMinSize(Button.USE_PREF_SIZE, Button.USE_PREF_SIZE);
@@ -74,4 +69,10 @@ public class View {
 		}
 		txtClientArea.setText(sb.toString());
 	}
+	 /**
+     * Stopping the view - just make it invisible
+     */
+    public void stop() {
+        stage.hide();
+    }
 }

@@ -8,7 +8,6 @@ public class Deal extends Observable{
 	private ArrayList<Card> cards;//final
 	
 
-
 	public int getIndex() {
 		return index;
 	}

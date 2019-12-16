@@ -1,8 +1,5 @@
 package com.dark.server;
-/**
- * This class has been taken from ch.fhnw.richards.lecture14_chatLab.v3_commons;
- * Small changes in the checks of the type of message;
- */
+
 import java.io.IOException;
 import java.net.Socket;
 
@@ -22,48 +19,51 @@ public class Client {
 		this.socket = socket;
 
 		// Create thread to read incoming messages
-				Runnable r = new Runnable() {
-					@Override
-					public void run() {
-						while(true) {
-							Message msg=null;//null;
-							try {
-								msg = Message.receive(socket);
-							} catch (ClassNotFoundException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							if (msg instanceof ChatMsg) {				
-								model.broadcast((ChatMsg) msg);
-							} else if (msg instanceof JoinMsg) {
-
-									model.broadcast((JoinMsg) msg);
-//	
-									
-							} else if (msg instanceof TurnMsg) {
-								model.broadcast((TurnMsg) msg);
-							} else if (msg instanceof PlayMsg) {
-								model.broadcast((PlayMsg) msg);
-							}
-						}
+		Runnable r = new Runnable() {
+			@Override
+			public void run() {
+				while(true) {
+					Message msg=null;//null;
+					try {
+						msg = Message.receive(socket);
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				};
-				Thread t = new Thread(r);
-				t.start();
-			}
-			public void send(Message msg) {
-				msg.send(socket);
-			}
-			public void stop() {
-				try {
-					socket.close();
-				} catch (IOException e) {
-					// Uninteresting
+					if (msg instanceof ChatMsg) {				
+						model.broadcast((ChatMsg) msg);
+					} else if (msg instanceof JoinMsg) {
+
+							model.broadcast((JoinMsg) msg);
+
+							
+					} else if (msg instanceof TurnMsg) {
+						model.broadcast((TurnMsg) msg);
+					} else if (msg instanceof PlayMsg) {
+						model.broadcast((PlayMsg) msg);
+					}
 				}
 			}
-
-			@Override
-			public String toString() {
-				return name + ": " + socket.toString();
-			}
+			
+		};
+		Thread t = new Thread(r);
+		t.start();
+		
+	}
+	public void send(Message msg) {
+		msg.send(socket);
+	}
+	public void stop() {
+		try {
+			
+			socket.close();
+		} catch (IOException e) {
+			// Uninteresting
 		}
+	}
+
+	@Override
+	public String toString() {
+		return name + ": " + socket.toString();
+	}
+}

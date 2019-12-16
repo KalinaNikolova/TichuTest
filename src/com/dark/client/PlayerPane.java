@@ -6,11 +6,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-/**
- * 
- * @author Kalina
- *
- */
+
 
 
 public class PlayerPane extends VBox {
@@ -26,7 +22,7 @@ public class PlayerPane extends VBox {
     // Link to player object
     private Player player;
     private int x=0;
-    BorderPane topPlayer; 
+    BorderPane topPlayer;//ne mnogo dobre...
     public PlayerPane() {
         super(); // Always call super-constructor first !!
         this.getStyleClass().add("player"); // CSS style class
@@ -34,16 +30,18 @@ public class PlayerPane extends VBox {
     	picture.setGraphic(null);
         //bottom.getChildren().addAll(picture, lblEvaluation);
     	topPlayer=new BorderPane();
+    	//BorderPane topPlayer=new BorderPane();
     	topPlayer.setPrefWidth(435);
     	topPlayer.setMaxWidth(435);
     	topPlayer.setMinWidth(435);
     	topPlayer.setLeft(playButton);
     	topPlayer.setCenter(lblName);
     	topPlayer.setRight(passButton);
-    	top.getChildren().add(topPlayer);
+    	//top.getChildren().add(topPlayer);//test
     	
         // Add child nodes
-        this.getChildren().addAll(top, hboxCards, bottom);//lblName,lblEvaluation
+        this.getChildren().addAll(topPlayer, hboxCards, bottom);//lblName,lblEvaluation
+       // this.getChildren().addAll(top, hboxCards, bottom);//lblName,lblEvaluation
         
         // Add CardLabels for the cards
         for (int i = 0; i < Player.HAND_SIZE; i++) {
@@ -64,7 +62,7 @@ public class PlayerPane extends VBox {
 	//not ok
 	public void setName(String name) {
 		lblName.setText(name);
-		player.setPlayerName(name);
+		player.setPlayerName(name);//
 	}
 
     public void updatePlayerDisplay() {
@@ -73,10 +71,9 @@ public class PlayerPane extends VBox {
     	x=0;
     	player.getCards().sort(null);//
     	for (int i = 0; i < Player.HAND_SIZE; i++) {
-//    		Card card = null;
-//    		if (player.getCards().size() > i) card = player.getCards().get(i);
+
     		CardLabel cl = (CardLabel) hboxCards.getChildren().get(i);
-    		//if(cl.getGraphic()!=null)
+    		
     			cl.setVisible(false);
     	}
     	for (int i = 0; i < player.getCards().size(); i++) {
@@ -84,12 +81,11 @@ public class PlayerPane extends VBox {
     		if (player.getCards().size() > i) card = player.getCards().get(i);
     		CardLabel cl = (CardLabel) hboxCards.getChildren().get(i);
     		cl.setLayoutX(x);
-    		//if(cl.getGraphic()!=null)
+    		
     			cl.setVisible(true);
     		x+=25;
     		cl.setCard(card);
 
-    		//lblEvaluation.setText("--");
     	}
     }
 

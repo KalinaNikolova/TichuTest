@@ -1,8 +1,5 @@
 package com.dark.server;
-/**
- * This class has been taken from ch.fhnw.richards.lecture14_chatLab.v3_commons;
- * No changes made
- */
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 

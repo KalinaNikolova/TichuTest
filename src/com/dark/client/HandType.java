@@ -91,7 +91,7 @@ public enum HandType {
 		int[] valueCards = HandType.getValueList(cards);
 
 		for (int i = 0; i < cards.size(); i++) {
-			valueCards[i] = cards.get(i).getOrdinal();
+	//		valueCards[i] = cards.get(i).getOrdinal();
 		}
 		Arrays.sort(valueCards);
 
@@ -180,7 +180,7 @@ public enum HandType {
 	public static int[] getValueList(ArrayList<Card> cards) { // used by TieBreak as well
 		int[] valueCards = new int[cards.size()];
 		for (int i = 0; i < cards.size(); i++) {
-			valueCards[i] = cards.get(i).getOrdinal();
+		//	valueCards[i] = cards.get(i).getOrdinal();
 		}
 		Arrays.sort(valueCards);
 

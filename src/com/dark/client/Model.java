@@ -1,10 +1,16 @@
 package com.dark.client;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.dark.client.Card.Rank;
+import com.dark.client.Card.Suit;
 import com.dark.common.ChatMsg;
 import com.dark.common.DealAllMsg;
 import com.dark.common.DealMsg;
@@ -13,24 +19,25 @@ import com.dark.common.Message;
 import com.dark.common.PlayMsg;
 import com.dark.common.PosMsg;
 import com.dark.common.TurnMsg;
+import com.dark.server.Client;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-// this class has been taken from ch.fhnw.richards.lecture14_chatLab.v3_client
-//and modified to fit our project
+
 /**
  * Note: One error in this implementation: The *display* of received messages is triggered
  * by a ChangeListener attached to the SimpleStringProperty. If the newly received message
  * is *identical* to the current contents of the SimpleStringProperty, then there is no
  * change, and the new (duplicate) message is not displayed.
  */
+
 public class Model {
 	protected SimpleStringProperty newestMessage = new SimpleStringProperty();
 	protected SimpleStringProperty newestName = new SimpleStringProperty();
 	protected SimpleStringProperty newestCards = new SimpleStringProperty();
 	protected Turn newestTurn = new Turn();
-	//protected SimpleIntegerProperty newestPosition = new SimpleIntegerProperty();
 	protected Move newestMove = new Move();
 	protected Deal newestDeal = new Deal();
 	protected DealAll newestDealAll = new DealAll();
@@ -74,18 +81,12 @@ public class Model {
 							position=msg.getPosition();
 						} else if (message instanceof DealMsg) {
 							DealMsg msg = (DealMsg)message;
-//							for(int j=0;j<Player.HAND_SIZE;j++) {
-//				    			Card card = msg.getCards().get(j);
-//				    			//view.players[i].addCard(card);
-//				    		}
+
 							newestDeal.setCards(msg.getCards());///////////////
 							newestDeal.setIndex(msg.getPosition());
 						} else if (message instanceof DealAllMsg) {
 							DealAllMsg msg = (DealAllMsg)message;
-//							for(int j=0;j<Player.HAND_SIZE;j++) {
-//				    			Card card = msg.getCards().get(j);
-//				    			//view.players[i].addCard(card);
-//				    		}
+
 							guests.add("guest"+(guests.size()+1));
 							newestDealAll.setTable(msg.getTable());
 							newestDealAll.setCards(msg.getCards());///////////////
@@ -94,11 +95,9 @@ public class Model {
 						} 
 						else if (message instanceof PlayMsg) {
 							PlayMsg msg = (PlayMsg)message;
-							//position=msg.getPosition();
 							newestMove.setCards(msg.getCards());///////////////
 							newestMove.setIndex(msg.getPosition());
-							//remove cards from player i
-							//play on table 
+						
 							
 						}
 					}
@@ -117,13 +116,16 @@ public class Model {
 	}
 
 	public void disconnect() {
+		
 		logger.info("Disconnect");
 		if (socket != null)
 			try {
+				
 				socket.close();
-			} catch (IOException e) {
-				// Uninteresting
-			}
+			
+			}catch (IOException ex) {
+	            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);    
+	        }
 	}
 	
 	public void sendMessage(String message) {	

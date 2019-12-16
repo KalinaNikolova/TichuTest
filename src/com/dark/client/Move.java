@@ -7,12 +7,7 @@ public class Move extends Observable{
 	private int index;
 	private ArrayList<Card> cards;//final
 	
-//	public Move(int index, ArrayList<Card> cards) {
-//		super();
-//		this.index = index;
-//		this.cards = cards;
-//		//notify  here
-//	}
+
 
 	public int getIndex() {
 		return index;
