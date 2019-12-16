@@ -57,7 +57,6 @@ public class View {
 //	VBox list = new VBox();
 //	addUsers();
 	
-	
 	Player[] players = {new Player("North"),new Player("East"),new Player("South"),new Player("West")};
 	public Player[] getPlayers() {
 		return players;
@@ -94,17 +93,14 @@ public class View {
 //	TextField txtRepeat = new TextField();
 	PasswordField txtRepeat = new PasswordField();
 	Label lblEmpty = new Label("-");
-	Button btnConnect = new Button("Login");//Connect
-	Button btnRegister = new Button("Register");
-	Button btnNew = new Button("New");
+	Button btnConnect = new Button("Login");
+//Connect
+	Button btnRegister = new Button("Submit");
+	Button btnNew = new Button("Register");
 	BorderPane buttons = new BorderPane();
 	
 	Button play= new Button("Sound ON");
 	MediaPlayer mediaPlayer;
-	
-	
-	
-	
 	
 	// Chat area
 	TextArea txtChatArea = new TextArea();
@@ -267,9 +263,7 @@ public class View {
 			menuStage.setTitle("Tichu Rules");
 			menuStage.show();
 		}
-		/**
-		 * 
-		 */
+		
 		public void playMusic(String musicFile) {
 			File file= new File(musicFile);
 			Media sound = new Media(file.toURI().toString());
@@ -285,14 +279,12 @@ public class View {
 		public void play() {
 			mediaPlayer.play();
 		}
-		
-		
+			
 		protected void start() {
 			stage.show();
 
 		}
-		
-		
+			
 		// GET SET
 		// All getters and setters
 		
@@ -405,13 +397,6 @@ public class View {
 			public TopMenu getTopMenu() {
 				return topMenu;
 			}
-
-		
-
-	
-		
-		
-
 
 			public MediaPlayer getMediaPlayer() {
 				return mediaPlayer;

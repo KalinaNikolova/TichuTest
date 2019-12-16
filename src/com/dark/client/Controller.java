@@ -9,6 +9,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Optional;
 import java.util.Scanner;
 
 import com.dark.client.Card.Rank;
@@ -26,6 +27,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -78,7 +80,8 @@ public class Controller implements Observer{
 						if(names.length>1)
 						 info+=names[1]+",";
 						if(names.length>1&&names[1].equals(userAndPass[0])) {
-							userFound=false;
+							userFound=false;		
+							
 						}
 					}
 					view.txtRepeat.setText("Names:"+info);
@@ -105,6 +108,22 @@ public class Controller implements Observer{
 				view.chatPane.visibleProperty().set(true);
 				view.chatPane2.disableProperty().set(false);
 				view.chatPane2.visibleProperty().set(true);
+				
+				Alert info2 = new Alert(AlertType.WARNING);
+				info2.setTitle("Login Successful");
+				info2.setHeaderText("Please press OK to proceed!");
+
+				info2.showAndWait();
+				
+			}
+			
+			// Warning for wrong usename or password
+			if(!userFound) {
+				Alert info1 = new Alert(AlertType.WARNING);
+				info1.setTitle("Error");
+				info1.setHeaderText("Check username or Password");
+				info1.setContentText("If you are a new user please register!");
+				info1.showAndWait();
 			}
 
 			
@@ -114,6 +133,7 @@ public class Controller implements Observer{
 			view.lblRepeat.visibleProperty().set(true);
 			view.txtRepeat.visibleProperty().set(true);
 			view.btnRegister.visibleProperty().set(true);
+			view.btnNew.visibleProperty().set(false);
 			view.btnRegister.disableProperty().set(false);
 		});
 		
@@ -145,18 +165,24 @@ public class Controller implements Observer{
 				}
 			}
 		});
-		/**
-		 * @author KALLYS PC
-		 */
+		
+		
+		
+      //	in case of user pressing exit button 	
 		view.stage.setOnCloseRequest( event ->{
-			System.out.println("user wants to leave!!!!!!!!! ");
-			Alert info= new Alert(AlertType.WARNING);
-			Platform.exit();
-			//model.disconnect()
+			Alert in4 = new Alert(AlertType.CONFIRMATION);
+			in4.setTitle("Confirmation ");
+			in4.setContentText("Are you sure you want to EXIT?");
+			Optional<ButtonType> result = in4.showAndWait();
+			if (result.get() == ButtonType.OK){
+			    Platform.exit();
+			} else {
+			    if(result.get() == ButtonType.CANCEL) {
+			    	event.consume();
+			    }
+			}
 			
 		} );
-		
-		///////////////////////////////////////////////////////////
 		
 		
 		view.btnSend.setOnAction( event -> {
