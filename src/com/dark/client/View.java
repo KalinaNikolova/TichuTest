@@ -28,6 +28,7 @@ import javafx.scene.image.Image;
 //import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -168,6 +169,7 @@ public class View {
 
 		vbox.getChildren().addAll(playerPanes[2],hbox);
 		tichu.setBottom(vbox);
+		
 		vbox.setPrefWidth(450);
 		vbox.setMinWidth(450);
 		vbox.setMaxWidth(450);
@@ -322,96 +324,10 @@ public class View {
 				return topMenu.close;
 			}
 
-			public MenuItem getRemovePlayerItem() {
-				return topMenu.somethingElse;
-			}
-
-			public MenuItem getHighCardsItem() {
-				return topMenu.highCards;
-			}
-
-			public MenuItem getHighCardsSplitItem() {
-				return topMenu.highCardsSplit;
-			}
-
-			public MenuItem getPairItem() {
-				return topMenu.pair;
-			}
-
-			public MenuItem getPairSplitItem() {
-				return topMenu.pairSplit;
-			}
-
-			public MenuItem getTwoPairItem() {
-				return topMenu.twoPair;
-			}
-
-			public MenuItem getTwoPairSplitItem() {
-				return topMenu.twoPairSplit;
-			}
-
-			public MenuItem getThreeOfAKindItem() {
-				return topMenu.threeOfKind;
-			}
-
-			public MenuItem getStraightItem() {
-				return topMenu.straight;
-			}
-
-			public MenuItem getStraightSplitItem() {
-				return topMenu.straightSplit;
-			}
-
-			public MenuItem getFlushItem() {
-				return topMenu.flush;
-			}
-
-			public MenuItem getFlushSplitItem() {
-				return topMenu.flushSplit;
-			}
-
-			public MenuItem getFullHouseItem() {
-				return topMenu.fullHouse;
-			}
-
-			public MenuItem getFourOfAKindItem() {
-				return topMenu.fourOfAKind;
-			}
-
-			public MenuItem getStraightFlushItem() {
-				return topMenu.straightFlush;
-			}
-
-			public MenuItem getStraightFlushSplitItem() {
-				return topMenu.straightFlushSplit;
-			}
-
-			public MenuItem getRoyalFlushItem() {
-				return topMenu.royalFlush;
-			}
-
-			public MenuItem getRoyalFlushSplitItem() {
-				return topMenu.royalFlushSplit;
-			}
-
-			public MenuItem getDifferentItem() {
-				return topMenu.different;
-			}
-
-			public MenuItem getDifferentSplitItem() {
-				return topMenu.differentSplit;
-			}
-
+	
 			public TopMenu getTopMenu() {
 				return topMenu;
 			}
-
-		
-
-	
-		
-		
-
 
 			public MediaPlayer getMediaPlayer() {
 				return mediaPlayer;

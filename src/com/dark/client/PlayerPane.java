@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 
 
 public class PlayerPane extends VBox {
-	private HBox top = new HBox();
+
 	private Button playButton = new Button("Play");
 	private Button passButton = new Button("Pass");
     private Label lblName = new Label();
