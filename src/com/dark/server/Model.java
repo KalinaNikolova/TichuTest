@@ -14,7 +14,6 @@ import com.dark.common.JoinMsg;
 import com.dark.common.PlayMsg;
 import com.dark.common.PosMsg;
 import com.dark.common.TurnMsg;
-
 import com.dark.client.Card;
 
 import javafx.application.Platform;
@@ -24,6 +23,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class Model {
+	
+	protected Card cards;
 	protected final ObservableList<Client> clients = FXCollections.observableArrayList();
 
 	Player[] players = {new Player("North"),new Player("East"),new Player("South"),new Player("West")};
