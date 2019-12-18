@@ -88,14 +88,11 @@ public class View {
 	Label lblName = new Label("Username:");
 	TextField txtName = new TextField();
 	Label lblPass = new Label("Password:");
-//	TextField txtPass = new TextField();
 	PasswordField txtPass = new PasswordField();
 	Label lblRepeat = new Label("Password repeat:");
-//	TextField txtRepeat = new TextField();
 	PasswordField txtRepeat = new PasswordField();
 	Label lblEmpty = new Label("-");
-	Button btnConnect = new Button("Login");
-//Connect
+	Button btnLogin = new Button("Login");
 	Button btnRegister = new Button("Submit");
 	Button btnNew = new Button("Register");
 	BorderPane buttons = new BorderPane();
@@ -214,7 +211,7 @@ public class View {
 		login.setMaxHeight(tichuTable.getHeight());
 		login.setMinHeight(tichuTable.getHeight());
 
-		buttons.setLeft(btnConnect);
+		buttons.setLeft(btnLogin);
 		buttons.setCenter(btnRegister);
 		buttons.setRight(btnNew);
 		
