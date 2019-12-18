@@ -49,7 +49,6 @@ public class View {
 	VBox vbox = new VBox();
 	HBox hbox = new HBox();
 
-	Button allowButton = new Button("Allow");
 	Button btnChat = new Button("Chat Box");
 	Button btnChat2 = new Button("Guests");
 	ListView guestList = new ListView();
@@ -119,9 +118,9 @@ public class View {
 		play.setMaxSize(120,5);
 		play.setStyle("-fx-text-fill:red");
 		
-		menu.getChildren().addAll(allowButton,info1,info2);//
+		
 
-		root.getChildren().addAll(topMenu.getMenuBar(),play,menu,tichuTable);
+		root.getChildren().addAll(topMenu.getMenuBar(),play,tichuTable);
 		
 		txtIpAddress.setText("localhost");
 		txtPort.setText("8585");
