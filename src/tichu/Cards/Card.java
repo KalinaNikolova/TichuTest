@@ -3,8 +3,8 @@ package tichu.Cards;
 
 public abstract class Card {
 
-    private int value;//gia thn katametrhsh twn pontwn
-    private int credits;//ka8e karta sumvolizetai me enan ari8mo px Mahjong=1,2=2,J=11,Q=12,K=13, A=14,
+    private int value;// for counting points 
+    private int credits;//Mahjong=1,2=2,.....,J=11,Q=12,K=13, A=14,
     
     
     /**
