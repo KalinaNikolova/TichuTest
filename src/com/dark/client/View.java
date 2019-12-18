@@ -1,17 +1,7 @@
 package com.dark.client;
 
 import java.io.File;
-
-import com.dark.client.Card.Rank;
-import com.dark.client.Card.Suit;
-
-//import application.Card;
-//import application.Player;
-//import application.Card.Rank;
-//import application.Card.Suit;
 import javafx.geometry.Pos;
-//import application.Player;
-//import application.PlayerPane;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,16 +9,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
-//import javafx.scene.image.Image;
-//import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -88,14 +73,11 @@ public class View {
 	Label lblName = new Label("Username:");
 	TextField txtName = new TextField();
 	Label lblPass = new Label("Password:");
-//	TextField txtPass = new TextField();
 	PasswordField txtPass = new PasswordField();
 	Label lblRepeat = new Label("Password repeat:");
-//	TextField txtRepeat = new TextField();
 	PasswordField txtRepeat = new PasswordField();
 	Label lblEmpty = new Label("-");
-	Button btnConnect = new Button("Login");
-//Connect
+	Button btnLogin = new Button("Login");
 	Button btnRegister = new Button("Submit");
 	Button btnNew = new Button("Register");
 	BorderPane buttons = new BorderPane();
@@ -214,7 +196,7 @@ public class View {
 		login.setMaxHeight(tichuTable.getHeight());
 		login.setMinHeight(tichuTable.getHeight());
 
-		buttons.setLeft(btnConnect);
+		buttons.setLeft(btnLogin);
 		buttons.setCenter(btnRegister);
 		buttons.setRight(btnNew);
 		
