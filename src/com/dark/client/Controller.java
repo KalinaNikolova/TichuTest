@@ -109,15 +109,14 @@ public class Controller implements Observer{
 				view.chatPane2.disableProperty().set(false);
 				view.chatPane2.visibleProperty().set(true);
 				
+			// login successful alert message
 				Alert info2 = new Alert(AlertType.WARNING);
 				info2.setTitle("Login Successful");
 				info2.setHeaderText("Please press OK to proceed!");
-
 				info2.showAndWait();
-				
 			}
 			
-			// Warning for wrong usename or password
+			// Warning for wrong user-name or password
 			if(!userFound) {
 				Alert info1 = new Alert(AlertType.WARNING);
 				info1.setTitle("Error");
@@ -162,6 +161,13 @@ public class Controller implements Observer{
 					} catch (IOException e2) {
 						e2.printStackTrace();
 					}
+					
+					// if the registration is successful 
+					Alert in4 = new Alert(AlertType.WARNING);
+					in4.setTitle("Congradulations!!");
+					in4.setHeaderText("Registration complete\nPlease press the login button to sign-in!!");
+
+					in4.showAndWait();	
 				}
 			}
 		});

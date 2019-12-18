@@ -1,7 +1,9 @@
-package com.dark.client;
+package com.dark.server;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import com.dark.client.Card;
 
 public enum HandType {
 	HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush, RoyalFlush;
@@ -12,24 +14,24 @@ public enum HandType {
 	 */
 	public static HandType evaluateHand(ArrayList<Card> cards) {
 		HandType currentEval = HighCard;
-		if (isRoyalFlush(cards)) currentEval = RoyalFlush;
-		
-		else if (isStraightFlush(cards)) currentEval = StraightFlush;
-		
-		else if (isFourOfAKind(cards)) currentEval = FourOfAKind;
-		
-		else if (isFullHouse(cards)) currentEval = FullHouse;
-		
-		else if (isFlush(cards))currentEval = Flush;
-		
-		else if (isStraight(cards))	currentEval = Straight;
-		
-		else if (isThreeOfAKind(cards))	currentEval = ThreeOfAKind;
-		
-		else if (isTwoPair(cards)) currentEval = TwoPair;
-		
-		else if (isOnePair(cards))currentEval = OnePair;
-		
+		if (isRoyalFlush(cards))
+			currentEval = RoyalFlush;
+		else if (isStraightFlush(cards))
+			currentEval = StraightFlush;
+		else if (isFourOfAKind(cards))
+			currentEval = FourOfAKind;
+		else if (isFullHouse(cards))
+			currentEval = FullHouse;
+		else if (isFlush(cards))
+			currentEval = Flush;
+		else if (isStraight(cards))
+			currentEval = Straight;
+		else if (isThreeOfAKind(cards))
+			currentEval = ThreeOfAKind;
+		else if (isTwoPair(cards))
+			currentEval = TwoPair;
+		else if (isOnePair(cards))
+			currentEval = OnePair;
 		return currentEval;
 	}
 
