@@ -20,7 +20,6 @@ public class KareBomb extends CardCombination{
         }
     }
     
-
     /**
      * accessors
      * Einai tupou Bomb
