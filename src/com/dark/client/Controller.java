@@ -85,7 +85,7 @@ public class Controller implements Observer{
 						}
 					}
 					view.txtRepeat.setText("Names:"+info);
-					view.info1.setText("Names:"+info);
+				
 				}
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
@@ -242,8 +242,7 @@ public class Controller implements Observer{
 						}
 					}
 					if(isMoved) {
-						view.info1.setText("size:"+table.getCards().size());
-//						PlayerPane tablePane = new PlayerPane();
+
 						TablePane tablePane = new TablePane();//
 						tablePane.setPlayer(table);
 						tablePane.topPlayer.setVisible(false);//
@@ -277,7 +276,7 @@ public class Controller implements Observer{
 						case "South":index=2;break;
 						case "West":index=3;break;
 						}
-						view.info1.setText("i"+index+"size:"+table.getCards().size());
+					
 						model.sendMsg(table.getCards(),index);
 					}
 					
@@ -483,8 +482,7 @@ public class Controller implements Observer{
 					table.addCard(card);
 					view.players[i].getCards().remove(card);
 				}
-				view.info2.setText("i:"+i+"size:"+cards.size()+"?"+(view.players[i].getCards().size()<13)+"?"+(table.getCards().size()>0));
-//				view.info.setText(view.info.getText()+(view.players[i].getCards().size()<13||table.getCards().size()>0));
+			
 				if(view.players[i].getCards().size()<13||table.getCards().size()>0) {
 					TablePane tablePane = new TablePane();
 					tablePane.setPlayer(table);
@@ -513,8 +511,7 @@ public class Controller implements Observer{
 		    			//view.playerPanes[i].updatePlayerDisplay();
 		    		}
 					view.playerPanes[i].updatePlayerDisplay();
-					view.info1.setText(hand);
-					view.info2.setText("dealed");
+				
 				}
 
 			}else if(newest instanceof DealAll) {
@@ -533,7 +530,7 @@ public class Controller implements Observer{
 						hands+="],";
 						view.playerPanes[k].updatePlayerDisplay();
 					}
-					view.info2.setText(hands);
+					
 					
 					ArrayList<Card> tableCards = deal.getTable();
 					
