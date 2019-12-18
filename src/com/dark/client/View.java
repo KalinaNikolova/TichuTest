@@ -38,9 +38,7 @@ import javafx.stage.Stage;
 public class View {
 	//CardLabel
 	VBox root = new VBox();
-	HBox menu = new HBox();
-	TextField info1 = new TextField();
-	TextField info2 = new TextField();
+
 	
 	StackPane tichuTable = new StackPane();
 	BorderPane tichu = new BorderPane();
@@ -55,9 +53,7 @@ public class View {
 	Button btnChat = new Button("Chat Box");
 	Button btnChat2 = new Button("Guests");
 	ListView guestList = new ListView();
-//	VBox list = new VBox();
-//	addUsers();
-	
+
 	Player[] players = {new Player("North"),new Player("East"),new Player("South"),new Player("West")};
 	public Player[] getPlayers() {
 		return players;
@@ -77,7 +73,6 @@ public class View {
 	HBox connectBox2=new HBox();
 	
 	protected Stage stage;
-//	private Model model;
 
 	// Top controls
 	VBox loginBox = new VBox();
@@ -113,9 +108,6 @@ public class View {
 	Button btnSend = new Button("Send");
 	Button btnSend2 = new Button("Send");
 	
-//	String fileName = "tichu.jpg";
-//	Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("poker/images/" + fileName));
-//	ImageView imv = new ImageView(image);
 
 	
 	public View(Stage stage, Model model) {
@@ -231,11 +223,9 @@ public class View {
 		tichu.disableProperty().set(true);
 		chatPane.disableProperty().set(true);
 		chatPane2.disableProperty().set(true);
-		menu.disableProperty().set(true);///
 		tichu.visibleProperty().set(false);
 		chatPane.visibleProperty().set(false);
 		chatPane2.visibleProperty().set(false);
-		menu.visibleProperty().set(false);///
 		tichuTable.getChildren().addAll(tichu,chatPane,chatPane2,login);
 		StackPane.setAlignment(chatPane,Pos.BOTTOM_RIGHT);
 		StackPane.setAlignment(chatPane2,Pos.BOTTOM_LEFT);
