@@ -16,10 +16,6 @@ import com.dark.server.Card;
 import com.dark.server.Card.Rank;
 import com.dark.server.Card.Suit;
 
-//import application.CardLabel;
-//import application.CardLabel;
-//import application.Player;
-//import application.PlayerPane;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -88,6 +84,7 @@ public class Controller implements Observer{
 						}
 					}
 					view.txtRepeat.setText("Names:"+info);
+
 				}
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
@@ -312,6 +309,7 @@ public class Controller implements Observer{
 						case "South":index=2;break;
 						case "West":index=3;break;
 						}
+
 						model.sendMsg(table.getCards(),index); // send Message to the server
 					}
 					
@@ -447,7 +445,7 @@ public class Controller implements Observer{
 						
 						if(view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().contains("clicked")) {
 							view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().remove("clicked");
-						}else {
+						}else {// if the cards are allowed to play, the player is able to click (select) them -> TO be implemented
 							if(view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().contains("allowed"))
 								view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().add("clicked");
 						}

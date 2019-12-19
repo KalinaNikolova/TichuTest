@@ -2,6 +2,7 @@ package com.dark.client;
 
 import java.io.File;
 
+
 import com.dark.server.Card.Rank;
 import com.dark.server.Card.Suit;
 
@@ -13,14 +14,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -31,15 +29,13 @@ public class View {
 	//CardLabel
 	VBox root = new VBox();
 
-
 	StackPane tichuTable = new StackPane();
 	BorderPane tichu = new BorderPane();
 	BorderPane login = new BorderPane();
 	
 	TopMenu topMenu = new TopMenu();
-	
-	VBox vbox = new VBox();
-	HBox hbox = new HBox();
+	VBox vbox = new VBox();//player pane box
+	HBox hbox = new HBox();// player pane box
 
 	Button btnChat = new Button("Chat Box");
 	Button btnChat2 = new Button("Guests");
@@ -65,7 +61,6 @@ public class View {
 	HBox connectBox2=new HBox();
 	
 	protected Stage stage;
-//	private Model model;
 
 	// Top controls
 	VBox loginBox = new VBox();
@@ -108,7 +103,6 @@ public class View {
 		play.setMaxSize(120,5);
 		play.setStyle("-fx-text-fill:red");
 		
-	
 		root.getChildren().addAll(topMenu.getMenuBar(),play,tichuTable);
 		
 		txtIpAddress.setText("localhost");
