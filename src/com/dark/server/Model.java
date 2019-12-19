@@ -5,7 +5,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.logging.Logger;
-
 import com.dark.client.Player;
 import com.dark.common.ChatMsg;
 import com.dark.common.DealAllMsg;
@@ -14,7 +13,6 @@ import com.dark.common.JoinMsg;
 import com.dark.common.PlayMsg;
 import com.dark.common.PosMsg;
 import com.dark.common.TurnMsg;
-import com.dark.client.Card;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -158,19 +156,34 @@ public class Model {
 
 		
 	}
-	public void broadcast(PlayMsg outMsg) {
-		logger.info("Broadcasting played cards to clients....."+outMsg.getCards());
-		clients.get(outMsg.getPosition()).send(outMsg);
+	public void broadcast(PlayMsg outMsg) {//receive the cards
+		logger.info("Broadcasting played cards to clients....."+outMsg.getCards());// Logger to check which cards were played on table
+		//send all players msg with played cards,e.d: INFO: Sending message: Play|[2stars, 5stars] to all clients
+		clients.get(outMsg.getPosition()).send(outMsg);//send
+		
+		this.tableCards=outMsg.getCards();//copy? cards,  I may use it
+	
+		
+		//remove in the end if necessaryyy
+//		for (int i=0;i<outMsg.getCards().size();i++) {
+//			players[outMsg.getPosition()].getCards().remove(outMsg.getCards().get(i));
+//			
+//		}
+		
+		
+		
 
-		this.tableCards=outMsg.getCards();//copy?
-		for (int i=0;i<outMsg.getCards().size();i++) {
-			players[outMsg.getPosition()].getCards().remove(outMsg.getCards().get(i));
-		}
+	
 		for (int i=0;i<clients.size();i++) {
-			if(i!=outMsg.getPosition()) {/////////
+			if(i!=outMsg.getPosition()) {///////// send all players the cards played
 				clients.get(i).send(outMsg);
+			
 			}
 		}
+		
+		/* logger to display which cards are on the table now e.g:
+		 * %%%%%%%% [2stars, 5pagodas, queenjade, kingpagodas, acepagodas] %%%%%%
+		 */
 		logger.info("%%%%%%%%%%%%%%%   "+this.tableCards+"   %%%%%%%%%%%%%%%");
 	}	
 

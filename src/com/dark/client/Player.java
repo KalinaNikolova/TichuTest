@@ -2,6 +2,8 @@ package com.dark.client;
 
 import java.util.ArrayList;
 
+import com.dark.server.Card;
+
 public class Player {
     public static final int HAND_SIZE = 13;
     

@@ -2,16 +2,10 @@ package com.dark.client;
 
 import java.io.File;
 
-import com.dark.client.Card.Rank;
-import com.dark.client.Card.Suit;
+import com.dark.server.Card.Rank;
+import com.dark.server.Card.Suit;
 
-//import application.Card;
-//import application.Player;
-//import application.Card.Rank;
-//import application.Card.Suit;
 import javafx.geometry.Pos;
-//import application.Player;
-//import application.PlayerPane;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,8 +18,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
-//import javafx.scene.image.Image;
-//import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -38,10 +30,8 @@ import javafx.stage.Stage;
 public class View {
 	//CardLabel
 	VBox root = new VBox();
-	HBox menu = new HBox();
-	TextField info1 = new TextField();
-	TextField info2 = new TextField();
-	
+
+
 	StackPane tichuTable = new StackPane();
 	BorderPane tichu = new BorderPane();
 	BorderPane login = new BorderPane();
@@ -51,12 +41,10 @@ public class View {
 	VBox vbox = new VBox();
 	HBox hbox = new HBox();
 
-	Button allowButton = new Button("Allow");
 	Button btnChat = new Button("Chat Box");
 	Button btnChat2 = new Button("Guests");
 	ListView guestList = new ListView();
-//	VBox list = new VBox();
-//	addUsers();
+
 	
 	Player[] players = {new Player("North"),new Player("East"),new Player("South"),new Player("West")};
 	public Player[] getPlayers() {
@@ -110,11 +98,7 @@ public class View {
 	Button btnSend = new Button("Send");
 	Button btnSend2 = new Button("Send");
 	
-//	String fileName = "tichu.jpg";
-//	Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("poker/images/" + fileName));
-//	ImageView imv = new ImageView(image);
 
-	
 	public View(Stage stage, Model model) {
 		
 		topMenu.setPrefWidth(root.getWidth());
@@ -124,9 +108,8 @@ public class View {
 		play.setMaxSize(120,5);
 		play.setStyle("-fx-text-fill:red");
 		
-		menu.getChildren().addAll(allowButton,info1,info2);//
-
-		root.getChildren().addAll(topMenu.getMenuBar(),play,menu,tichuTable);
+	
+		root.getChildren().addAll(topMenu.getMenuBar(),play,tichuTable);
 		
 		txtIpAddress.setText("localhost");
 		txtPort.setText("8585");
@@ -228,11 +211,9 @@ public class View {
 		tichu.disableProperty().set(true);
 		chatPane.disableProperty().set(true);
 		chatPane2.disableProperty().set(true);
-		menu.disableProperty().set(true);///
 		tichu.visibleProperty().set(false);
 		chatPane.visibleProperty().set(false);
 		chatPane2.visibleProperty().set(false);
-		menu.visibleProperty().set(false);///
 		tichuTable.getChildren().addAll(tichu,chatPane,chatPane2,login);
 		StackPane.setAlignment(chatPane,Pos.BOTTOM_RIGHT);
 		StackPane.setAlignment(chatPane2,Pos.BOTTOM_LEFT);
@@ -245,7 +226,6 @@ public class View {
 		stage.getIcons().add(new Image("tichu/images/dragon.png"));	
 		
 		this.stage = stage;
-//		this.model = model;
 
 		stage.setTitle("Tichu Client");
 	}

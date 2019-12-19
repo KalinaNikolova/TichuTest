@@ -3,8 +3,6 @@ package com.dark.server;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import com.dark.client.Card;
-
 //import org.junit.Before;
 
 import javafx.beans.property.SimpleIntegerProperty;
@@ -54,7 +52,7 @@ public class DeckOfCards {
         cardsRemaining.setValue(cards.size());
     }
 //	private String[][] playersCards = {
-//			{ "2S", "9C", "3H", "5D", "7H" },//high card
+//		{ "2S", "9C", "3H", "5D", "7H" },//high card
 //			{ "7S", "5C", "5H", "JD", "JH" },//2 pairs
 //			{ "2S", "3D", "4S", "5S", "6S" },//straight
 //			{ "AS", "AC", "QH", "JD", "QH" }//2 pairs

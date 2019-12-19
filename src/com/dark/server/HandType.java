@@ -1,92 +1,90 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.dark.server;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.dark.client.Card;
-
+/**
+ *
+ * @author Ralf
+ */
 public enum HandType {
-	HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush, RoyalFlush;
+	OnePair, SequenceOfPair, Trio, Sequence, FullHouse, FourOfAKind, StraightFlush, SingleCard;
 
 	/**
 	 * Determine the value of this hand. Note that this does not account for any
 	 * tie-breaking
 	 */
 	public static HandType evaluateHand(ArrayList<Card> cards) {
-		HandType currentEval = HighCard;
-		if (isRoyalFlush(cards))
-			currentEval = RoyalFlush;
-		else if (isStraightFlush(cards))
-			currentEval = StraightFlush;
+		HandType currentEval = SingleCard;
+		 if (isStraightFlush(cards))
+			currentEval = StraightFlush; //Bomb(atleast 5)
 		else if (isFourOfAKind(cards))
-			currentEval = FourOfAKind;
+			currentEval = FourOfAKind; //4erBomb
 		else if (isFullHouse(cards))
 			currentEval = FullHouse;
-		else if (isFlush(cards))
-			currentEval = Flush;
-		else if (isStraight(cards))
-			currentEval = Straight;
-		else if (isThreeOfAKind(cards))
-			currentEval = ThreeOfAKind;
-		else if (isTwoPair(cards))
-			currentEval = TwoPair;
+		else if (isSequence(cards))
+			currentEval = Sequence;
+		else if (isTrio(cards))
+			currentEval = Trio;
+		else if (isSequenceOfPair(cards))
+			currentEval = SequenceOfPair;
 		else if (isOnePair(cards))
 			currentEval = OnePair;
+                else if (isSingleCard(cards))
+                        currentEval=SingleCard;
+                
 		return currentEval;
 	}
+        
+       public static boolean isSingleCard(ArrayList<Card> cards) {
+           
+           boolean isSingleCard=false;
+
+            if(cards.size()==1){
+		
+             isSingleCard=true;
+                  
+            }
+            
+                return isSingleCard;
+	} 
+            
 
 	public static boolean isOnePair(ArrayList<Card> cards) {
-
-		return findSameOfAKind(cards, 2);
+            int[] valueCards = HandType.getValueList(cards);
+            
+            boolean isOnePair=false;
+            
+                  if(cards.size()==2 && (valueCards[0]==valueCards[1])){
+		
+             isOnePair=true;        
+            }
+                  return isOnePair;
 	}
+        
+        
+        	public static boolean isTrio(ArrayList<Card> cards) {
+                    
+                     int[] valueCards = HandType.getValueList(cards);
+            
+            boolean isTrio=false;
+                    
+                 if(cards.size()==3 && (valueCards[0]==valueCards[1]) && (valueCards[1]==valueCards[2])){
+                        
+                     isTrio=true;
+                        
+                    }
 
-	public static boolean isTwoPair(ArrayList<Card> cards) {
-		// Clone the cards, because we will be altering the list
-		ArrayList<Card> clonedCards = (ArrayList<Card>) cards.clone();
-
-		// Find the first pair; if found, remove the cards from the list
-		boolean firstPairFound = false;
-		for (int i = 0; i < clonedCards.size() - 1 && !firstPairFound; i++) {
-			for (int j = i + 1; j < clonedCards.size() && !firstPairFound; j++) {
-				if (clonedCards.get(i).getRank() == clonedCards.get(j).getRank()) {
-					firstPairFound = true;
-					clonedCards.remove(j); // Remove the later card
-					clonedCards.remove(i); // Before the earlier one
-				}
-			}
-		}
-		// If a first pair was found, see if there is a second pair
-		return firstPairFound && isOnePair(clonedCards);
-	}
-
-	public static boolean isThreeOfAKind(ArrayList<Card> cards) {
-
-		return findSameOfAKind(cards, 3);
-
-	}
-
-	public static boolean isStraight(ArrayList<Card> cards) {
-
-		boolean isStraight = false;
-		if (!HandType.checkFlush(cards) && HandType.checkStraight(cards))
-			isStraight = true;
-
-		return isStraight;
+		return isTrio;
 
 	}
-
-	public static boolean isFlush(ArrayList<Card> cards) {
-
-		boolean isFlush = false;
-
-		if (HandType.checkFlush(cards) && !HandType.checkStraight(cards))
-			isFlush = true;
-
-		return isFlush;
-
-	}
-
-	public static boolean isFullHouse(ArrayList<Card> cards) {
+                
+                	public static boolean isFullHouse(ArrayList<Card> cards) {
 
 		// suit doesn't matter only rank, 3 of the same rank and 2 of the same rank
 
@@ -110,6 +108,64 @@ public enum HandType {
 
 		return isFullHouse;
 	}
+                
+                
+
+	public static boolean isSequenceOfPair(ArrayList<Card> cards) {
+		// Clone the cards, because we will be altering the list
+		ArrayList<Card> clonedCards = (ArrayList<Card>) cards.clone();
+
+		// Find the first pair; if found, remove the cards from the list
+		boolean firstPairFound = false;
+		for (int i = 0; i < clonedCards.size() - 1 && !firstPairFound; i++) {
+			for (int j = i + 1; j < clonedCards.size() && !firstPairFound; j++) {
+				if (clonedCards.get(i).getRank() == clonedCards.get(j).getRank()) {
+					firstPairFound = true;
+					clonedCards.remove(j); // Remove the later card
+					clonedCards.remove(i); // Before the earlier one
+				}
+			}
+		}
+		// If a first pair was found, see if there is a second pair
+		return firstPairFound && isOnePair(clonedCards);
+	}
+        
+        public static boolean isSequence(ArrayList<Card> cards) {
+            boolean isSequence=false;
+            int[] valueCards = HandType.getValueList(cards);
+
+                    
+                 if(cards.size()>=5&&isStraight(cards)){
+                     
+                        isSequence=true;
+                        
+                    }
+
+		return isSequence;
+            
+        }
+
+
+	public static boolean isStraight(ArrayList<Card> cards) { //check if is sequence 
+
+		boolean isStraight = false;
+		if (!HandType.checkFlush(cards) && HandType.checkStraight(cards))
+			isStraight = true;
+
+		return isStraight;
+
+	}
+
+	public static boolean isFlush(ArrayList<Card> cards) {
+
+		boolean isFlush = false;
+
+		if (HandType.checkFlush(cards) && !HandType.checkStraight(cards))
+			isFlush = true;
+
+		return isFlush;
+
+	}
 
 	public static boolean isFourOfAKind(ArrayList<Card> cards) {
 		return findSameOfAKind(cards, 4);
@@ -117,29 +173,17 @@ public enum HandType {
 
 	public static boolean isStraightFlush(ArrayList<Card> cards) {
 		boolean isStraightFlush = false;
+                
+                if(cards.size()>=5){
 
 		if (HandType.checkFlush(cards) && HandType.checkStraight(cards))
 			isStraightFlush = true;
+                
+                }
 
 		return isStraightFlush;
 	}
 
-	public static boolean isRoyalFlush(ArrayList<Card> cards) {
-
-		boolean isRoyalFlush = false;
-		int[] valueCards = HandType.getValueList(cards);
-		final int royalFlush = 60;
-		int rankValue = 0;
-
-		for (int i = 0; i < valueCards.length; i++) { // get Card Value
-			rankValue += valueCards[i];
-		}
-
-		if (HandType.checkFlush(cards) && rankValue == royalFlush)
-			isRoyalFlush = true;
-
-		return isRoyalFlush;
-	}
 
 	private static boolean checkFlush(ArrayList<Card> cards) {
 
@@ -178,6 +222,7 @@ public enum HandType {
 		}
 		return isStraight;
 	}
+        
 
 	public static int[] getValueList(ArrayList<Card> cards) { // used by TieBreak as well
 		int[] valueCards = new int[cards.size()];

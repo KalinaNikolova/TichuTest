@@ -3,6 +3,8 @@ package com.dark.client;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import com.dark.server.Card;
+
 public class Deal extends Observable{
 	private int index;
 	private ArrayList<Card> cards;//final

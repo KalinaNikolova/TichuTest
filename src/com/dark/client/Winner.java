@@ -3,7 +3,7 @@ package com.dark.client;
 import java.util.ArrayList;
 import java.util.Observable;
 
-import com.dark.client.Card;
+import com.dark.server.Card;
 
 public class Winner extends Observable{
 	private int index;

@@ -2,7 +2,7 @@ package com.dark.common;
 
 import java.util.ArrayList;
 
-import com.dark.client.Card;
+import com.dark.server.Card;
 
 public class DealAllMsg extends Message{
 

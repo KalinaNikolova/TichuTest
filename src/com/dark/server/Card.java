@@ -1,4 +1,4 @@
-package com.dark.client;
+package com.dark.server;
 
 import java.io.Serializable;
 

@@ -12,8 +12,9 @@ import java.util.Observer;
 import java.util.Optional;
 import java.util.Scanner;
 
-import com.dark.client.Card.Rank;
-import com.dark.client.Card.Suit;
+import com.dark.server.Card;
+import com.dark.server.Card.Rank;
+import com.dark.server.Card.Suit;
 
 //import application.CardLabel;
 //import application.CardLabel;
@@ -87,7 +88,6 @@ public class Controller implements Observer{
 						}
 					}
 					view.txtRepeat.setText("Names:"+info);
-					view.info1.setText("Names:"+info);
 				}
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
@@ -312,7 +312,6 @@ public class Controller implements Observer{
 						case "South":index=2;break;
 						case "West":index=3;break;
 						}
-						view.info1.setText("i"+index+"size:"+table.getCards().size());
 						model.sendMsg(table.getCards(),index); // send Message to the server
 					}
 					
@@ -403,8 +402,8 @@ public class Controller implements Observer{
 			});
 		});
 		
-		/*Animated chat with Guests watching the game-> each 5+ client is a guest that can watch and write 
-		 * in a separate chat. Disable chat of players */
+		/*Animated chat with Guests watching the game-> each >4 client is a guest that can watch and write 
+		 * in a separate chat. Disable chat of the players. Players on the table should not be able to enter and see all cards (TO be implemented)*/
 		view.btnChat2.setOnAction(e->{
 			Platform.runLater(() -> {
 				if(view.chatPane2.getMaxHeight()!=200) {
@@ -441,6 +440,7 @@ public class Controller implements Observer{
 			for(int mj=0;mj<13;mj++) {
 				final int i = mi;
 				final int j = mj;
+				// if the cards are allowed to play, the player is able to click (select) them -> TO be implemented
 				view.playerPanes[i].getHboxCards().getChildren().get(j).setOnMouseClicked(e -> {
 					
 					if(((CardLabel)view.playerPanes[i].getHboxCards().getChildren().get(j)).getGraphic()!=null) {

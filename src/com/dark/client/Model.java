@@ -1,16 +1,10 @@
 package com.dark.client;
 
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.dark.client.Card.Rank;
-import com.dark.client.Card.Suit;
 import com.dark.common.ChatMsg;
 import com.dark.common.DealAllMsg;
 import com.dark.common.DealMsg;
@@ -19,9 +13,8 @@ import com.dark.common.Message;
 import com.dark.common.PlayMsg;
 import com.dark.common.PosMsg;
 import com.dark.common.TurnMsg;
+import com.dark.server.Card;
 import com.dark.server.Client;
-
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,7 +42,7 @@ public class Model {
 	private int position;
 
 	public void connect(String ipAddress, int Port, String name) {
-		logger.info("Connect");
+		logger.info("Connect client[ "+name+" ]");
 		this.name = name;
 		try {
 			socket = new Socket(ipAddress, Port);
@@ -95,9 +88,9 @@ public class Model {
 						} 
 						else if (message instanceof PlayMsg) {
 							PlayMsg msg = (PlayMsg)message;
-							newestMove.setCards(msg.getCards());///////////////
-							newestMove.setIndex(msg.getPosition());
-						
+							newestMove.setCards(msg.getCards());///////////////the cards on the table,e.g-> [2stars, 5stars]
+							newestMove.setIndex(msg.getPosition());///////// which player put those cards
+							
 							
 						}
 					}
@@ -140,10 +133,15 @@ public class Model {
 		}
 
 	}
-	
-	public void sendMsg(ArrayList<Card> cards,int index) {//can not import Message- why???
+	// sending msg to the server what cards and which player played on the table
+	public void sendMsg(ArrayList<Card> cards,int index) {
 		logger.info("Send turn");
-		PlayMsg msg = new PlayMsg(cards, index);
-		msg.send(socket);
+		
+		/* send the msg with the cards on the table to the server
+		 * E.g, -> [3swords, 3stars, 4swords], 0
+		 */
+		PlayMsg msg = new PlayMsg(cards, index); 
+	
+		msg.send(socket); //msg:Play|[3swords, 3stars, 4swords]
 	}
 }

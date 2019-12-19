@@ -2,6 +2,7 @@ package com.dark.client;
 
 import java.util.ArrayList;
 
+import com.dark.server.Card;
 import com.dark.server.HandType;
 
 public class TieBreak {
