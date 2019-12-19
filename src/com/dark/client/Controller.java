@@ -81,7 +81,7 @@ public class Controller implements Observer{
 						}
 					}
 					view.txtRepeat.setText("Names:"+info);
-					view.info1.setText("Names:"+info);
+		
 				}
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
@@ -306,7 +306,7 @@ public class Controller implements Observer{
 						case "South":index=2;break;
 						case "West":index=3;break;
 						}
-						view.info1.setText("i"+index+"size:"+table.getCards().size());
+
 						model.sendMsg(table.getCards(),index); // send Message to the server
 					}
 					
@@ -397,8 +397,8 @@ public class Controller implements Observer{
 			});
 		});
 		
-		/*Animated chat with Guests watching the game-> each 5+ client is a guest that can watch and write 
-		 * in a separate chat. Disable chat of players */
+		/*Animated chat with Guests watching the game-> each >4 client is a guest that can watch and write 
+		 * in a separate chat. Disable chat of the players. Players on the table should not be able to enter and see all cards (TO be implemented)*/
 		view.btnChat2.setOnAction(e->{
 			Platform.runLater(() -> {
 				if(view.chatPane2.getMaxHeight()!=200) {
@@ -441,7 +441,7 @@ public class Controller implements Observer{
 						
 						if(view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().contains("clicked")) {
 							view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().remove("clicked");
-						}else {
+						}else {// if the cards are allowed to play, the player is able to click (select) them -> TO be implemented
 							if(view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().contains("allowed"))
 								view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().add("clicked");
 						}

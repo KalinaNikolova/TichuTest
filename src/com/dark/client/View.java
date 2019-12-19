@@ -23,25 +23,18 @@ import javafx.stage.Stage;
 public class View {
 	//CardLabel
 	VBox root = new VBox();
-	HBox menu = new HBox();
-	TextField info1 = new TextField();
-	TextField info2 = new TextField();
 	
 	StackPane tichuTable = new StackPane();
 	BorderPane tichu = new BorderPane();
 	BorderPane login = new BorderPane();
 	
 	TopMenu topMenu = new TopMenu();
-	
-	VBox vbox = new VBox();
-	HBox hbox = new HBox();
+	VBox vbox = new VBox();//player pane box
+	HBox hbox = new HBox();// player pane box
 
-	Button allowButton = new Button("Allow");
 	Button btnChat = new Button("Chat Box");
 	Button btnChat2 = new Button("Guests");
 	ListView guestList = new ListView();
-//	VBox list = new VBox();
-//	addUsers();
 	
 	Player[] players = {new Player("North"),new Player("East"),new Player("South"),new Player("West")};
 	public Player[] getPlayers() {
@@ -62,7 +55,6 @@ public class View {
 	HBox connectBox2=new HBox();
 	
 	protected Stage stage;
-//	private Model model;
 
 	// Top controls
 	VBox loginBox = new VBox();
@@ -95,11 +87,7 @@ public class View {
 	Button btnSend = new Button("Send");
 	Button btnSend2 = new Button("Send");
 	
-//	String fileName = "tichu.jpg";
-//	Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("poker/images/" + fileName));
-//	ImageView imv = new ImageView(image);
 
-	
 	public View(Stage stage, Model model) {
 		
 		topMenu.setPrefWidth(root.getWidth());
@@ -109,9 +97,7 @@ public class View {
 		play.setMaxSize(120,5);
 		play.setStyle("-fx-text-fill:red");
 		
-		menu.getChildren().addAll(allowButton,info1,info2);//
-
-		root.getChildren().addAll(topMenu.getMenuBar(),play,menu,tichuTable);
+		root.getChildren().addAll(topMenu.getMenuBar(),play,tichuTable);
 		
 		txtIpAddress.setText("localhost");
 		txtPort.setText("8585");
@@ -213,11 +199,9 @@ public class View {
 		tichu.disableProperty().set(true);
 		chatPane.disableProperty().set(true);
 		chatPane2.disableProperty().set(true);
-		menu.disableProperty().set(true);///
 		tichu.visibleProperty().set(false);
 		chatPane.visibleProperty().set(false);
 		chatPane2.visibleProperty().set(false);
-		menu.visibleProperty().set(false);///
 		tichuTable.getChildren().addAll(tichu,chatPane,chatPane2,login);
 		StackPane.setAlignment(chatPane,Pos.BOTTOM_RIGHT);
 		StackPane.setAlignment(chatPane2,Pos.BOTTOM_LEFT);

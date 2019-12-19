@@ -1,8 +1,10 @@
 This game has been developed
 as an educational project in FHNW Basel 2019 by:
-Ralf Fux - BIT2A
+
 Dominic Richner - BIT4B
 Ahsan Manzoor - BIT2A
+Ralf Fux - BIT2A
 Kalina Nikolova - BIT2A
+
 
 
