@@ -46,7 +46,7 @@ public class MainTest {
 	}
 
 	/**
-	 * Test method for {@link com.dark.server.Main#main(java.lang.String[])}.
+	 * Test method for {@link com.dark.server.TichuStartServer#main(java.lang.String[])}.
 	 */
 	@Test
 	public final void testMain() {
@@ -54,7 +54,7 @@ public class MainTest {
 	}
 
 	/**
-	 * Test method for {@link com.dark.server.Main#start(javafx.stage.Stage)}.
+	 * Test method for {@link com.dark.server.TichuStartServer#start(javafx.stage.Stage)}.
 	 */
 	@Test
 	public final void testStartStage() {

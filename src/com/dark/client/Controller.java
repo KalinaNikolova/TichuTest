@@ -5,19 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Optional;
 import java.util.Scanner;
-
 import com.dark.server.Card;
-import com.dark.server.HandType;
-import com.dark.server.Card.Rank;
-import com.dark.server.Card.Suit;
-
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -30,7 +23,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
@@ -48,16 +40,16 @@ public class Controller implements Observer{
 		view.getHandsItem().setOnAction(e -> hands());
 
 		// set on action button play sound
-		view.play.setOnAction(e->{
-			if(view.play.getText()=="Sound ON") {
+		view.soundBtn.setOnAction(e->{
+			if(view.soundBtn.getText()=="Sound ON") {
 				view.stopMusic();
-				view.play.setText("Sound OFF");
-				view.play.setStyle("-fx-text-fill:white");
+				view.soundBtn.setText("Sound OFF");
+				view.soundBtn.setStyle("-fx-text-fill:white");
 			}
 			else{
 				view.play();
-				view.play.setText("Sound ON");	
-				view.play.setStyle("-fx-text-fill:red");
+				view.soundBtn.setText("Sound ON");	
+				view.soundBtn.setStyle("-fx-text-fill:red");
 			}
 		});
 		
@@ -259,12 +251,13 @@ public class Controller implements Observer{
 					
 					ArrayList<Card> cards = new ArrayList<>(13);
 					for(int j=0;j<view.playerPanes[i].getHboxCards().getChildren().size();j++) {
-						System.out.println("R:259 size of array playerpanes initialy  13: "+view.playerPanes[i].getHboxCards().getChildren().size());
-						//if cards are clicked they are selected to be played
-						if(view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().contains("clicked")) {//take first player his pane and check if clicked j= 1st card
-							System.out.println("R:262 or this IS MAYBE the card selected?:"+ view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().contains("clicked"));
+					
+						//if cards are clicked they are selected to be played/////////////////////////////////////////////////////////////////////CLICKED///////////////////////////
+						if(view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().contains("clicked")) {
+							
+							//take first player his pane and check if clicked j= 1st card
 							CardLabel cardLabel = (CardLabel)view.playerPanes[i].getHboxCards().getChildren().get(j);
-							System.out.println("R:264 THIS IS MAYBE the card selected?:"+ cardLabel.getCard());
+						
 //								if(cardLabel.getCard()) {
 //								
 //							}
@@ -491,215 +484,7 @@ public class Controller implements Observer{
 			}
 		}
 	}
-//	public boolean checkHand() {
-//		for(int i=0;i<13;i++) {
-//			
-//		}
-//		
-//		return true;
-//	}
-//	public void allowCards() {
-//		
-//	String cards= "";
-//		switch (cards) {		
-//
-//		 
-//        case "StraightFlush": 		//  higher rank wins
-//        case "Trio":
-//        case "Sequence":
-//        case "FourOFAKind":
-//           
-//        {
-//	}
-        ////////////////////////////////////////////////////////// TO TEST
-        public static boolean isOnePair(ArrayList<Card> cards) {
-            int[] valueCards = HandType.getValueList(cards);
-            
-            boolean isOnePair=false;
-            
-                  if(cards.size()==2 && (valueCards[0]==valueCards[1])){
-		
-             isOnePair=true;        
-            }
-                  return isOnePair;
-	}
-        
-        
-        	public static boolean isTrio(ArrayList<Card> cards) {
-                    
-                     int[] valueCards = HandType.getValueList(cards);
-            
-            boolean isTrio=false;
-                    
-                 if(cards.size()==3 && (valueCards[0]==valueCards[1]) && (valueCards[1]==valueCards[2])){
-                        
-                     isTrio=true;
-                        
-                    }
 
-		return isTrio;
-
-	}
-                
-                	public static boolean isFullHouse(ArrayList<Card> cards) {
-
-		// suit doesn't matter only rank, 3 of the same rank and 2 of the same rank
-
-		int[] valueCards = HandType.getValueList(cards);
-
-		for (int i = 0; i < cards.size(); i++) {
-	//		valueCards[i] = cards.get(i).getOrdinal();
-		}
-		Arrays.sort(valueCards);
-
-		boolean isFullHouse = false;
-
-		if (valueCards[0] == valueCards[1]) {
-			// check if third card is the same or the next 3 are the same
-			if (valueCards[1] == valueCards[2]) {
-				if (valueCards[3] == valueCards[4])
-					isFullHouse = true;
-			} else if (valueCards[2] == valueCards[3] && valueCards[3] == valueCards[4])
-				isFullHouse = true;
-		}
-
-		return isFullHouse;
-	}
-                
-                
-
-	public static boolean isSequenceOfPair(ArrayList<Card> cards) {
-		// Clone the cards, because we will be altering the list
-		ArrayList<Card> clonedCards = (ArrayList<Card>) cards.clone();
-
-		// Find the first pair; if found, remove the cards from the list
-		boolean firstPairFound = false;
-		for (int i = 0; i < clonedCards.size() - 1 && !firstPairFound; i++) {
-			for (int j = i + 1; j < clonedCards.size() && !firstPairFound; j++) {
-				if (clonedCards.get(i).getRank() == clonedCards.get(j).getRank()) {
-					firstPairFound = true;
-					clonedCards.remove(j); // Remove the later card
-					clonedCards.remove(i); // Before the earlier one
-				}
-			}
-		}
-		// If a first pair was found, see if there is a second pair
-		return firstPairFound && isOnePair(clonedCards);
-	}
-        
-        public static boolean isSequence(ArrayList<Card> cards) {
-            boolean isSequence=false;
-            int[] valueCards = HandType.getValueList(cards);
-
-                    
-                 if(cards.size()>=5&&isStraight(cards)){
-                     
-                        isSequence=true;
-                        
-                    }
-
-		return isSequence;
-            
-        }
-
-
-	public static boolean isStraight(ArrayList<Card> cards) { //check if is sequence 
-
-		boolean isStraight = false;
-		if (!HandType.checkFlush(cards) && HandType.checkStraight(cards))
-			isStraight = true;
-
-		return isStraight;
-
-	}
-
-	public static boolean isFlush(ArrayList<Card> cards) {
-
-		boolean isFlush = false;
-
-		if (HandType.checkFlush(cards) && !HandType.checkStraight(cards))
-			isFlush = true;
-
-		return isFlush;
-
-	}
-
-	public static boolean isFourOfAKind(ArrayList<Card> cards) {
-		return findSameOfAKind(cards, 4);
-	}
-
-	public static boolean isStraightFlush(ArrayList<Card> cards) {
-		boolean isStraightFlush = false;
-                
-                if(cards.size()>=5){
-
-		if (HandType.checkFlush(cards) && HandType.checkStraight(cards))
-			isStraightFlush = true;
-                
-                }
-
-		return isStraightFlush;
-	}
-
-
-	private static boolean checkFlush(ArrayList<Card> cards) {
-
-		boolean isFlush = false;
-		boolean allSuit = true;
-
-		for (int i = 0; i < cards.size() - 1; i++) {
-			for (int j = i + 1; j < cards.size(); j++) {
-
-				if (cards.get(i).getSuit() == cards.get(j).getSuit() && allSuit) {
-					isFlush = true;
-
-				} else {
-					allSuit = false;
-					isFlush = false;
-				}
-			}
-		}
-
-		return isFlush;
-	}
-
-	private static boolean checkStraight(ArrayList<Card> cards) {
-
-		int[] valueCards = HandType.getValueList(cards);
-
-		boolean isStraight = false;
-
-		for (int i = 0; i < valueCards.length - 1; i++) {
-			if (valueCards[i] + 1 == valueCards[i + 1]) {
-				isStraight = true;
-			} else {
-				isStraight = false;
-				break;
-			}
-		}
-		return isStraight;
-	}
-	
-	
-	public static boolean findSameOfAKind(ArrayList<Card> cards, int num) {
-		int count = 1;
-		boolean found = false;
-		for (int i = 0; i < cards.size() - 1 && !found; i++) {
-			count = 1;
-			for (int j = i + 1; j < cards.size() && !found; j++) {
-				if (cards.get(i).getRank() == cards.get(j).getRank())
-					count++;
-			}
-			if (count >= num) {
-				found = true;
-			}
-		}
-		return found;
-	}
-	/////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	/////////////////////////////////////////REMOVE//////////////////////////////////////////////////////////////
-	
 	
 	//Set top menu items
 	public void hands() {
@@ -731,6 +516,7 @@ public class Controller implements Observer{
 	}
 	
 	// to not repeat code 
+	// Confirmation if the player wants to exit 
 	public void exitConfirmation(Event event) {
 		Alert in4 = new Alert(AlertType.CONFIRMATION);
 		in4.setTitle("Confirmation ");

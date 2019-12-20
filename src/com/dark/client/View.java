@@ -84,7 +84,7 @@ public class View {
 	Button btnNew = new Button("Register");
 	BorderPane buttons = new BorderPane();
 	
-	Button play= new Button("Sound ON");
+	Button soundBtn= new Button("Sound ON");
 	MediaPlayer mediaPlayer;
 	
 	// Chat area
@@ -104,10 +104,10 @@ public class View {
 		
 		lblName.setStyle("-fx-text-fill:white");
 		lblPass.setStyle("-fx-text-fill:white");
-		play.setMaxSize(120,5);
-		play.setStyle("-fx-text-fill:red");
+		soundBtn.setMaxSize(120,5);
+		soundBtn.setStyle("-fx-text-fill:red");
 		
-		root.getChildren().addAll(topMenu.getMenuBar(),play,tichuTable);
+		root.getChildren().addAll(topMenu.getMenuBar(),soundBtn,tichuTable);
 		
 		txtIpAddress.setText("localhost");
 		txtPort.setText("8585");
