@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.dark.server;
 
 import java.util.ArrayList;
@@ -21,8 +25,8 @@ public enum HandType {
 			currentEval = StraightFlush; //Bomb(atleast 5)
 		else if (isFourOfAKind(cards))
 			currentEval = FourOfAKind; //4erBomb
-		else if (isFullHouse(cards))
-			currentEval = FullHouse;
+	/*	else if (isFullHouse(cards))
+			currentEval = FullHouse; */
 		else if (isSequence(cards))
 			currentEval = Sequence;
 		else if (isTrio(cards))
@@ -181,7 +185,7 @@ public enum HandType {
 	}
 
 
-	public static boolean checkFlush(ArrayList<Card> cards) {
+	private static boolean checkFlush(ArrayList<Card> cards) {
 
 		boolean isFlush = false;
 		boolean allSuit = true;
@@ -202,7 +206,7 @@ public enum HandType {
 		return isFlush;
 	}
 
-	public static boolean checkStraight(ArrayList<Card> cards) {
+	private static boolean checkStraight(ArrayList<Card> cards) {
 
 		int[] valueCards = HandType.getValueList(cards);
 

@@ -3,6 +3,8 @@ package com.dark.server;
 
 import java.util.ArrayList;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
+
 
 /**
  *
@@ -17,8 +19,7 @@ public class Teams {
     public static ArrayList <Card> cardsTeam2 = new ArrayList<>(); 
     public static ArrayList <String> cardsT1 = new ArrayList<>(); //test array
     
-    
-       private ArrayList<Card> cards = new ArrayList<>();////// temporar testing    
+       private ArrayList<com.dark.server.Card> cards = new ArrayList<>();////// temporar testing    
     
     public void calculatePoints(){
         //calulate value of stored cards
@@ -62,7 +63,7 @@ public class Teams {
     */
     
     public String getWinner(){
-        
+      
         if(scoreTeam1>scoreTeam2){
             
         }
@@ -87,39 +88,6 @@ public class Teams {
         Teams.scoreTeam2 = scoreTeam2;
     }
     
-    // TEST take cards from table
-//    public static void team(int pos, ArrayList<Card> cards) {
-//    	ArrayList<Card> cardsForEvaluation = new ArrayList<Card>();
-//    		
-//    		for (int i=0; i< cards.size();i++){
-//    			cardsForEvaluation.add(cards.get(i));
-//    			if(cardsForEvaluation.size()>1&&  !cards.get(i).equals(cards.get(i-1)) && pos==0 || pos==2) {
-//    				cardsTeam1.add(cards.get(i));
-//            		System.out.println("Cards from A:"+ cardsTeam1);
-//    			}
-//    			if (cards.size()>1&&  !cards.get(i).equals(cards.get(i-1)) && pos==1 || pos==3) {
-//    	    		cardsTeam2.add(cards.get(i));
-//    	    		System.out.println("Cards from A:"+ cardsTeam1);
-//    		}
-//    	
-//    	
-//    	System.out.println("CARDS TEAMS: team1:"+ cardsTeam1.toString()+ " team2:"+ cardsTeam2.toString());
-//    
-//    		}
-//    		System.out.println("FINALLY WE HAVE CARDS TEAMS: team1:"+ cardsTeam1.toString()+ " team2:"+ cardsTeam2.toString());
-//    }
-    /*Test
-    public void addCard() {
-
-         
-         cardsT1.add("2C");
-         cardsT1.add("5c");
-         cardsT1.add("6c");
-         cardsT1.add("TC");
-         cardsT1.add("KC");
     
-    
-        }
 
-*/
 }

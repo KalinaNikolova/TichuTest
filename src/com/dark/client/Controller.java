@@ -56,6 +56,7 @@ public class Controller implements Observer{
 		/**
 		 * @author Ahsan
 		 */
+		
 		// Login button
 		view.btnLogin.setOnAction( event -> {
 			boolean userFound=false;
@@ -271,6 +272,7 @@ public class Controller implements Observer{
 						//if cards are clicked they are selected to be played/////////////////////////////////////////////////////////////////////CLICKED///////////////////////////
 						if(view.playerPanes[i].getHboxCards().getChildren().get(j).getStyleClass().contains("clicked")) {
 							
+							
 							//take first player his pane and check if clicked j= 1st card
 							CardLabel cardLabel = (CardLabel)view.playerPanes[i].getHboxCards().getChildren().get(j);
 						
@@ -353,7 +355,11 @@ public class Controller implements Observer{
 					if(!view.playerPanes[i].getName().contains(":")) {
 					
 						view.playerPanes[i].setName(view.playerPanes[i].getName()+":"+names[i]);
-					}				
+					
+							
+					}		
+							
+									
 				}
 
 			});

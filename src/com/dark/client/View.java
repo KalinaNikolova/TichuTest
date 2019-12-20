@@ -47,15 +47,8 @@ public class View {
 
 	
 	Player[] players = {new Player("North"),new Player("East"),new Player("South"),new Player("West")};
-	public Player[] getPlayers() {
-		return players;
-	}
+	PlayerPane[] playerPanes= {new PlayerPane(),new PlayerPane(),new PlayerPane(),new PlayerPane()};
 
-	public void setPlayers(Player[] players) {
-		this.players = players;
-	}
-
-	PlayerPane[] playerPanes = {new PlayerPane(),new PlayerPane(),new PlayerPane(),new PlayerPane()};
 	
 	HBox chatBox=new HBox();
 	VBox chatPane=new VBox();
@@ -303,6 +296,14 @@ public class View {
 
 			public void setMediaPlayer(MediaPlayer mediaPlayer) {
 				this.mediaPlayer = mediaPlayer;
+			}
+			
+			public Player[] getPlayers() {
+				return players;
+			}
+
+			public void setPlayers(Player[] players) {
+				this.players = players;
 			}
 
 		

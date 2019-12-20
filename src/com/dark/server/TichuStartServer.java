@@ -15,6 +15,7 @@ public class TichuStartServer extends Application {
 		View view = new View(primaryStage, model);
 		Controller controller = new Controller(model, view);
 		view.start();
+		CardsSets tmp = CardsSets.getInstance();
 	}
 
 }

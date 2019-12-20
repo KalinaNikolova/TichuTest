@@ -79,7 +79,7 @@ public class Model {
 		stop = true;
 		if (listener != null) {
 			try {
-				Platform.exit();/////////////////
+				Platform.exit();
 				listener.close();
 			} catch (IOException e) {
 				// Uninteresting
@@ -112,12 +112,12 @@ public class Model {
 			DealMsg[] dealMessages= new DealMsg[4];
 			for(int i=0;i<4;i++) {
 				
-				dealMessages[i] = new DealMsg(players[i].getCards(),i);//dobavi v saobshtenie za saobshtenie
+				dealMessages[i] = new DealMsg(players[i].getCards(),i);
 				//send cliend DealMsg with his cards
 			}
 			
 			broadcast(dealMessages);
-			broadcast(new TurnMsg(3,"pass"));//v next if?
+			broadcast(new TurnMsg(3,"pass"));
 		}
 		if(clients.size()>4) {
 			for(int i=0;i<4;i++) {
@@ -163,49 +163,9 @@ public class Model {
 		//send all players msg with played cards,e.d: INFO: Sending message: Play|[2stars, 5stars] to all clients
 		clients.get(outMsg.getPosition()).send(outMsg);//send
 		
-		this.tableCards=outMsg.getCards();//copy? cards,  I may use it
+		this.tableCards=outMsg.getCards();
 
                 
-          TichuGameHandler tgh = new TichuGameHandler(outMsg.getPosition());
-          
-        ArrayList<Card> cardstemp = new ArrayList<Card>();
-            
-        
-        if(cardstemp.isEmpty()){
-         outMsg.getCards().forEach((card) -> {   
-                        cardstemp.add(card);
-            });  
-         
-         
-            outMsg.getCards().forEach((card) -> {   
-                 System.out.println("In Model: "+card.toString());
-              //     tgh.cardsOnTable.add(card);
-            tgh.putCards(cards);
-            });
-             tgh.printCardOnTable();     
-             
-        }
-         
-         
-                 
-           
-            /*
-                for(int i=0;i<outMsg.getCards().size();i++){
-                            System.out.println("Test model: "+ outMsg.getCards().get(i).toString());
-              tgh.cardsOnTable.add(outMsg.getCards().get(i));
-              tgh.printCardOnTable();
-        } */
-		
-		//remove in the end if necessaryyy
-//		for (int i=0;i<outMsg.getCards().size();i++) {
-//			players[outMsg.getPosition()].getCards().remove(outMsg.getCards().get(i));
-//			
-//		}
-		
-		
-		
-
-	
 		for (int i=0;i<clients.size();i++) {
 			if(i!=outMsg.getPosition()) {///////// send all players the cards played
 				clients.get(i).send(outMsg);

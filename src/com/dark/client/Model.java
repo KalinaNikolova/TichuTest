@@ -15,6 +15,9 @@ import com.dark.common.PosMsg;
 import com.dark.common.TurnMsg;
 import com.dark.server.Card;
 import com.dark.server.Client;
+import com.dark.server.Teams;
+import com.dark.server.TichuGameHandler;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -89,13 +92,7 @@ public class Model {
 							PlayMsg msg = (PlayMsg)message;
 							newestMove.setCards(msg.getCards());///////////////the cards on the table,e.g-> [2stars, 5stars]
 							newestMove.setIndex(msg.getPosition());///////// which player put those cards
-					
-							
-							
-							
-							
-							//TEST try later
-							//Teams.team(msg.getPosition(), msg.getCards());
+							TichuGameHandler.playerCardsOnTable(msg.getPosition(),msg.getCards());
 						
 						}
 				
