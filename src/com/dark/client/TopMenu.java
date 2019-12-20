@@ -3,7 +3,11 @@ package com.dark.client;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-
+/**
+ * 
+ * @author KALLYS PC
+ *
+ */
 public class TopMenu extends MenuBar {
 	private MenuBar menuBar = new MenuBar();
 

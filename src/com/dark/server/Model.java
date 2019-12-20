@@ -162,7 +162,37 @@ public class Model {
 		clients.get(outMsg.getPosition()).send(outMsg);//send
 		
 		this.tableCards=outMsg.getCards();//copy? cards,  I may use it
-	
+
+                
+          TichuGameHandler tgh = new TichuGameHandler(outMsg.getPosition());
+          
+        ArrayList<Card> cardstemp = new ArrayList<Card>();
+            
+        
+        if(cardstemp.isEmpty()){
+         outMsg.getCards().forEach((card) -> {   
+                        cardstemp.add(card);
+            });  
+         
+         
+            outMsg.getCards().forEach((card) -> {   
+                 System.out.println("In Model: "+card.toString());
+              //     tgh.cardsOnTable.add(card);
+            tgh.putCards(cards);
+            });
+             tgh.printCardOnTable();     
+             
+        }
+         
+         
+                 
+           
+            /*
+                for(int i=0;i<outMsg.getCards().size();i++){
+                            System.out.println("Test model: "+ outMsg.getCards().get(i).toString());
+              tgh.cardsOnTable.add(outMsg.getCards().get(i));
+              tgh.printCardOnTable();
+        } */
 		
 		//remove in the end if necessaryyy
 //		for (int i=0;i<outMsg.getCards().size();i++) {

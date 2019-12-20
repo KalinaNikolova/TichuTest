@@ -2,7 +2,7 @@ package com.dark.common;
 
 public class TurnMsg extends Message {
 	/**
-	 * 
+	 *Body taken from WI_SoftwareEngineering-master.zip Bradley Richards chatLab
 	 */
 	private static final long serialVersionUID = 1L;
 	private int position;

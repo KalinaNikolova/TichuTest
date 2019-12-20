@@ -9,7 +9,7 @@ public class DealMsg extends Message{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Card> cards;//трябва да отидат в Common картите Serializable
+	private ArrayList<Card> cards;
 	private int position;
 	public DealMsg(ArrayList<Card> cards, int position) {
 		super(MessageType.Deal);

@@ -24,7 +24,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-
+/**
+ * 
+ *@author KALLYS PC
+ *
+ */
 public class View {
 	//CardLabel
 	VBox root = new VBox();

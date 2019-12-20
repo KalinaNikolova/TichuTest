@@ -10,9 +10,10 @@ public class DealAllMsg extends Message{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<ArrayList<Card>> cards;//трябва да отидат в Common картите Serializable
+	private ArrayList<ArrayList<Card>> cards;
 	private ArrayList<Card> table;
 	private int position;
+	
 //	public DealAllMsg(ArrayList<ArrayList<Card>> cards, int position) {
 //		super();
 //		// TODO Auto-generated constructor stub

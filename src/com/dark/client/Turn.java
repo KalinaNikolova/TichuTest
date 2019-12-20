@@ -1,7 +1,11 @@
 package com.dark.client;
 
 import java.util.Observable;
-
+/**
+ * 
+ * @author KALLYS PC
+ *
+ */
 public class Turn extends Observable{
 	private int turn;
 

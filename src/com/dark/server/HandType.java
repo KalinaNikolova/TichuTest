@@ -185,7 +185,7 @@ public enum HandType {
 	}
 
 
-	private static boolean checkFlush(ArrayList<Card> cards) {
+	public static boolean checkFlush(ArrayList<Card> cards) {
 
 		boolean isFlush = false;
 		boolean allSuit = true;
@@ -206,7 +206,7 @@ public enum HandType {
 		return isFlush;
 	}
 
-	private static boolean checkStraight(ArrayList<Card> cards) {
+	public static boolean checkStraight(ArrayList<Card> cards) {
 
 		int[] valueCards = HandType.getValueList(cards);
 
