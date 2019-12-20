@@ -53,7 +53,9 @@ public class Controller implements Observer{
 			}
 		});
 		
-		
+		/**
+		 * @author Ahsan
+		 */
 		// Login button
 		view.btnLogin.setOnAction( event -> {
 			boolean userFound=false;
@@ -122,6 +124,9 @@ public class Controller implements Observer{
 
 			
 		});
+		/**
+		 * @author Ahsan
+		 */
 		
 		// Show form for register user
 		view.btnNew.setOnAction( event -> {
@@ -131,7 +136,9 @@ public class Controller implements Observer{
 			view.btnNew.visibleProperty().set(false);
 			view.btnRegister.disableProperty().set(false);
 		});
-		
+		/**
+		 * @author Ahsan
+		 */
 		//Register new user
 		view.btnRegister.setOnAction( event -> {
 			if(view.txtName.getText()!=null&&!view.txtName.getText().equals("")&&view.txtPass.getText().equals(view.txtRepeat.getText())&&view.txtPass.getText()!=null&&!view.txtPass.getText().equals("")) {
@@ -171,7 +178,9 @@ public class Controller implements Observer{
 		});
 		
 		
-		
+		/**
+		 * @author Ahsan
+		 */
       //	in case of user pressing exit button 	
 		view.stage.setOnCloseRequest( event ->{
 			Alert in4 = new Alert(AlertType.CONFIRMATION);
@@ -187,18 +196,23 @@ public class Controller implements Observer{
 			}
 			
 		} );
-		
+		/**
+		 * @author Ahsan
+		 */
 		 //	in case of user pressing exit button at any time
 		view.stage.setOnCloseRequest( event ->{
 		exitConfirmation(event);
 			
 		} );
-		
+		/**
+		 * @author Kalina
+		 */
 		//button send of chat messages
 		view.btnSend.setOnAction( event -> {
 			model.sendMessage(view.txtChatMessage.getText());
 			view.txtChatMessage.setText("");//added
 		});
+		
 		
 		//set all players Pass button
 		for(PlayerPane playerPane:view.playerPanes) {
@@ -224,7 +238,9 @@ public class Controller implements Observer{
 					}
 				}
 			});
-			
+			/**
+			 * @author Kalina
+			 */
 			//Set Play cards button
 			playerPane.getPlayButton().setOnAction(e->{
 				model.sendMessage("pass");// if cards a re played goes to the next player
@@ -317,7 +333,9 @@ public class Controller implements Observer{
 				
 			});
 		}
-		
+		/**
+		 * Taken from Bradely Richards chatlab and enhanced by Kalina
+		 */
 		//send a message to the chat
 		model.newestMessage.addListener( (o, oldValue, newValue) -> {
 			if (!newValue.isEmpty()) { // Ignore empty messages
@@ -369,6 +387,9 @@ public class Controller implements Observer{
 		model.newestDeal.addObserver(this);
 		model.newestDealAll.addObserver(this);
 		
+		/**
+		 * @author Kalina
+		 */
 		//Animate chat and yellow button when msg was send
 		view.btnChat.setOnAction(e->{
 			Platform.runLater(() -> {
@@ -400,6 +421,9 @@ public class Controller implements Observer{
 			});
 		});
 		
+		/**
+		 * @author Kalina
+		 */
 		/*Animated chat with Guests watching the game-> each >4 client is a guest that can watch and write 
 		 * in a separate chat. Disable chat of the players. Players on the table should not be able to enter and see all cards (TO be implemented)*/
 		view.btnChat2.setOnAction(e->{
@@ -432,7 +456,9 @@ public class Controller implements Observer{
 			});
 		});
 		
-	
+		/**
+		 * @author Kalina
+		 */
 		// set the clicked cards 
 		for(int mi=0;mi<4;mi++) {
 			for(int mj=0;mj<13;mj++) {
@@ -461,7 +487,9 @@ public class Controller implements Observer{
 				});
 				
 				
-				
+				/**
+				 * @author Kalina
+				 */
 				//To make the cards move UP when mouse is moved onto them -> -25
 				view.playerPanes[i].getHboxCards().getChildren().get(j).setOnMouseEntered(e -> {
 					
@@ -471,7 +499,9 @@ public class Controller implements Observer{
 
 					}
 				});
-				
+				/**
+				 * @author Kalina
+				 */
 				//to put the cards down when mouse is onto them -> return to 0
 				view.playerPanes[i].getHboxCards().getChildren().get(j).setOnMouseExited(e -> {
 					
@@ -485,7 +515,9 @@ public class Controller implements Observer{
 		}
 	}
 
-	
+	/**
+	 * @author Kalina
+	 */
 	//Set top menu items
 	public void hands() {
 		String fileName = "hands.txt";
@@ -501,7 +533,9 @@ public class Controller implements Observer{
 		String fileName = "about.txt";
 		printFile(fileName);
 	}
-
+	/**
+	 * @author Kalina
+	 */
 	// take txt file from images folder
 	private void printFile(String fileName) {
 		String text = "";
@@ -514,7 +548,9 @@ public class Controller implements Observer{
 		Label lbl = new Label(text);
 		view.createMenuStage("topMenuStage.css", lbl, new ScrollPane());
 	}
-	
+	/**
+	 * @author Ahsan
+	 */
 	// to not repeat code 
 	// Confirmation if the player wants to exit 
 	public void exitConfirmation(Event event) {
@@ -532,7 +568,9 @@ public class Controller implements Observer{
 	}
 	
 	
-
+	/**
+	 * @author Kalina
+	 */
 	//Update the view of the players
 	@Override
 	public void update(Observable newest, Object newValue) {
@@ -542,7 +580,7 @@ public class Controller implements Observer{
 			if(newest instanceof Turn) {
 				view.playerPanes[(int) newValue].getPassButton().disableProperty().set(false);
 				view.playerPanes[(int) newValue].getPlayButton().disableProperty().set(false);
-				//mmmm
+				
 				for(int j=0;j<view.playerPanes[(int) newValue].getHboxCards().getChildren().size();j++) {
 					if(((CardLabel)view.playerPanes[(int) newValue].getHboxCards().getChildren().get(j)).getGraphic()!=null) {
 						if(!view.playerPanes[(int) newValue].getHboxCards().getChildren().get(j).getStyleClass().contains("allowed"))
