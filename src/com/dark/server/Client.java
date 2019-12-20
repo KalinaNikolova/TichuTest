@@ -8,7 +8,9 @@ import com.dark.common.JoinMsg;
 import com.dark.common.Message;
 import com.dark.common.PlayMsg;
 import com.dark.common.TurnMsg;
-
+/**
+ *Body taken from WI_SoftwareEngineering-master.zip Bradley Richards chatLab
+ */
 public class Client {
 	private Socket socket;
 	private String name = "<new>";

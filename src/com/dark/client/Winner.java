@@ -1,5 +1,7 @@
 package com.dark.client;
-
+/**
+ * If do not use this class we should remove it before uopload
+ */
 import java.util.ArrayList;
 import java.util.Observable;
 

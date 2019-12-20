@@ -3,7 +3,11 @@ package com.dark.common;
 import java.util.ArrayList;
 
 import com.dark.server.Card;
-
+/**
+ * 
+ * Remove if not used before uploading it
+ *
+ */
 
 public class WinMsg  extends Message {
 

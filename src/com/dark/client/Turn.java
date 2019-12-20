@@ -3,7 +3,7 @@ package com.dark.client;
 import java.util.Observable;
 /**
  * 
- * @author KALLYS PC
+ * @author Kalina
  *
  */
 public class Turn extends Observable{

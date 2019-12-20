@@ -10,8 +10,10 @@ import java.io.Serializable;
 import java.net.Socket;
 import java.util.logging.Logger;
 
-public abstract class Message implements Serializable{
+public abstract class Message implements Serializable{// using serialization
 	/**
+	 * The body of this class was taken from WI_SoftwareEngineering-master.zip from Bradley Richards
+	 * chatLab examples
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
@@ -26,13 +28,10 @@ public abstract class Message implements Serializable{
 	
 	public void send(Socket socket) {
 		//try with resources
-		//OutputStreamWriter out;
 		ObjectOutputStream out;
 		try {
-			//out = new OutputStreamWriter(socket.getOutputStream());
-			out = new ObjectOutputStream(socket.getOutputStream());
+			out = new ObjectOutputStream(socket.getOutputStream());// Using streams
 			logger.info("Sending message: " + this.toString());
-			//out.write(this.toString() + "\n");
 			out.writeObject(this);
 			out.flush();
 		} catch (IOException e) {
@@ -41,28 +40,16 @@ public abstract class Message implements Serializable{
 	}
 	
 	public static Message receive(Socket socket) throws ClassNotFoundException {
-		//BufferedReader in;
 		ObjectInputStream in;
 		Message msg = null;
 		try {
-			//in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			in = new ObjectInputStream(socket.getInputStream());
-			//String msgText = in.readLine(); // Will wait here for complete line
-			msg = (Message)in.readObject(); // delete
+			
+			in = new ObjectInputStream(socket.getInputStream());// using stream
+			msg = (Message)in.readObject(); // Will wait here for complete line
 			String msgText = msg.toString();
 			logger.info("Receiving message: " + msgText);
 			
-//			// Parse message
-//			String[] parts = msgText.split("\\|");
-//			if (parts[0].equals(MessageType.Join.toString())) {
-//				msg = new JoinMsg(parts[1]);
-//			} else if (parts[0].equals(MessageType.Chat.toString())) {
-//				msg = new ChatMsg(parts[1], parts[2]);
-//			} else if (parts[0].equals(MessageType.Turn.toString())) {
-//				msg = new TurnMsg(Integer.parseInt(parts[1]), parts[2]);
-//			}  else if (parts[0].equals(MessageType.Pos.toString())) {
-//				msg = new PosMsg(Integer.parseInt(parts[1]));
-//			}			
+			
 		} catch (IOException e) {
 			logger.warning(e.toString());
 		}

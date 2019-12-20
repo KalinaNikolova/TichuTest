@@ -6,6 +6,10 @@ import java.util.Collections;
 //import org.junit.Before;
 
 import javafx.beans.property.SimpleIntegerProperty;
+/**
+ *Body taken from Bradley Richards poker example; enhenced by Kalina& Ralf for the poker game and used for Tichu project
+ */
+
 
 /**
  * This class represents a deck of playing cards. When initially created, the deck is filled and shuffled.

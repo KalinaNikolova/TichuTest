@@ -6,9 +6,6 @@ import com.dark.server.Card;
 
 public class PlayMsg extends Message {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Card> cards;
 	private int position;

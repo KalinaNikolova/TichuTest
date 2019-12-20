@@ -5,9 +5,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.swing.plaf.synth.SynthSplitPaneUI;
-
 import com.dark.common.ChatMsg;
 import com.dark.common.DealAllMsg;
 import com.dark.common.DealMsg;
@@ -18,17 +15,14 @@ import com.dark.common.PosMsg;
 import com.dark.common.TurnMsg;
 import com.dark.server.Card;
 import com.dark.server.Client;
-import com.dark.server.Teams;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * Note: One error in this implementation: The *display* of received messages is triggered
- * by a ChangeListener attached to the SimpleStringProperty. If the newly received message
- * is *identical* to the current contents of the SimpleStringProperty, then there is no
- * change, and the new (duplicate) message is not displayed.
+ * The body of this class was taken from WI_SoftwareEngineering-master.zip from Bradley Richards
+ * chatLab example
+ * 
  */
 
 public class Model {
@@ -95,7 +89,7 @@ public class Model {
 							PlayMsg msg = (PlayMsg)message;
 							newestMove.setCards(msg.getCards());///////////////the cards on the table,e.g-> [2stars, 5stars]
 							newestMove.setIndex(msg.getPosition());///////// which player put those cards
-						
+					
 							
 							
 							

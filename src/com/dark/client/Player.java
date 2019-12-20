@@ -3,7 +3,10 @@ package com.dark.client;
 import java.util.ArrayList;
 
 import com.dark.server.Card;
-
+/**
+ * The body of this class was taken from  Poker game 2019 Kalina & Ralf
+ * 
+ */
 public class Player {
     public static final int HAND_SIZE = 13;
     

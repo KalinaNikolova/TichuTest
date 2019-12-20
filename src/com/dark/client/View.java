@@ -26,7 +26,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 /**
  * 
- *@author KALLYS PC
+ *@author Kalina
  *
  */
 public class View {

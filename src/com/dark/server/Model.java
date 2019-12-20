@@ -19,7 +19,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-
+/**
+ *Body taken from WI_SoftwareEngineering-master.zip Bradley Richards chatLab and enhanced for Tichu project by Kalina
+ */
 public class Model {
 	
 	protected Card cards;

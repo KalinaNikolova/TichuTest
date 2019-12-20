@@ -5,7 +5,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 /**
  * 
- * @author KALLYS PC
+ * @author Kalina
  *
  */
 public class TopMenu extends MenuBar {

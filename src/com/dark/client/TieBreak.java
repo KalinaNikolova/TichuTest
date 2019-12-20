@@ -1,5 +1,7 @@
 package com.dark.client;
-
+/**
+ * If we do not use this class we should remove it before upload it
+ */
 import java.util.ArrayList;
 
 import com.dark.server.Card;

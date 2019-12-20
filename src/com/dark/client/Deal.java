@@ -1,5 +1,7 @@
 package com.dark.client;
-
+/**
+ * @author Kalina
+ */
 import java.util.ArrayList;
 import java.util.Observable;
 

@@ -1,5 +1,7 @@
 package com.dark.server;
-
+/**
+ *Class taken from WI_SoftwareEngineering-master.zip Bradley Richards chatLab
+ */
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener;
 

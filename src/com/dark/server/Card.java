@@ -1,7 +1,10 @@
 package com.dark.server;
 
 import java.io.Serializable;
-
+/**
+ * This class has been taken from poker game project of Kalina & Ralf and transformed to work for the Tichu game
+ *
+ */
 public class Card implements Comparable<Card>, Serializable{
 	
 		public enum Suit {
